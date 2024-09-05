@@ -1,4 +1,6 @@
 Dag #1 (2024-09-05) - Idag startade vi projektet och lyckades fixa en bra arbetsmiljö och förstå varandras preferenser. Vi kom fram till att vi skulle använda
 visual studio code som arbetsmiljö för att programmera, trello använder vi för att strukturera arbetet och se vad som finns kvar. Sedan fixade vi även produktbeskrivning
 på alla våra produkter på hamburgerorderer projektet (Hamburgare,tillbehör,dryck). Inga speciellt svårigheter idag utan jag tycker det har flytit på rätt bra och är
-exalterad över hur projektets resultat och kunskapen man hovar in längst vägen.
+exalterad över hur projektets resultat kommer se ut och kunskapen man hovar in längst vägen. Vi fixade även upp git projektet om det inte är obvious :)
+Git-kommandon använda idag var commit och merch som vi behövde använda under dagens gång. Commit är man committar in sin egna version av filen som man jobbat på.
+Merch är när man har en egen version (branch) man jobbat på och sedan merchar in den i filen för att sammankoppla dom. Kan behöva lösa vissa konflikter som uppstår

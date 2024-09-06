@@ -1,23 +1,25 @@
 # client-frontend/Dockerfile
 
-# Use a Node.js image
-FROM node:18
+FROM node:18 as build-stage
 
-# Set working directory inside the container
 WORKDIR /app
 
-# Copy package.json and install dependencies
-COPY package.json ./
+COPY package.json package-lock.json ./
 RUN npm install
 
-# Copy the rest of the app
 COPY . .
 
-# Build the app for production
 RUN npm run build
 
-# Expose port
-EXPOSE 3000
+FROM nginx:alpine as production-stage
 
-# Start the app
-CMD ["npm", "start"]
+# Copy the production build from the build stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+
+# Copy custom Nginx config
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY default.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

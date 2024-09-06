@@ -1,0 +1,38 @@
+# docker-compose.yml
+services:
+  client:
+    build:
+      context: ./BurgerOrderer
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  kitchen:
+    build:
+      context: ./KitchenView
+      dockerfile: Dockerfile
+    ports:
+      - "3001:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./Backend
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=mongodb://mongo:27017/burger-db
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

@@ -1,5 +1,4 @@
-
-# KitchenView/Dockerfile
+# backend/Dockerfile
 
 FROM node:18
 
@@ -10,8 +9,6 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+EXPOSE 5000
 
-EXPOSE 3001
-
-CMD ["npm", "start"]
+CMD ["node", "app/server.js"]

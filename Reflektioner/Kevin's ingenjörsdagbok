@@ -1,6 +1,17 @@
-Dag #1 (2024-09-05) - Idag startade vi projektet och lyckades fixa en bra arbetsmiljö och förstå varandras preferenser. Vi kom fram till att vi skulle använda
-visual studio code som arbetsmiljö för att programmera, trello använder vi för att strukturera arbetet och se vad som finns kvar. Sedan fixade vi även produktbeskrivning
-på alla våra produkter på hamburgerorderer projektet (Hamburgare,tillbehör,dryck). Inga speciellt svårigheter idag utan jag tycker det har flytit på rätt bra och är
-exalterad över hur projektets resultat kommer se ut och kunskapen man hovar in längst vägen. Vi fixade även upp git projektet om det inte är obvious :)
-Git-kommandon använda idag var commit och merch som vi behövde använda under dagens gång. Commit är man committar in sin egna version av filen som man jobbat på.
-Merch är när man har en egen version (branch) man jobbat på och sedan merchar in den i filen för att sammankoppla dom. Kan behöva lösa vissa konflikter som uppstår
+I will be counting this as days I have been working on the project for a longer time, but will also put date to clarify which day that was.
+
+Day #1 (2024-09-05) Today we started the project and achieved a collected thought on which working environment we should use, we also talked about future preferences 
+during the projects timeline to understand how we all work as individuals. We came up with the conclusion to use visual studio code for programming, trello for structuring
+our project and assigning task to eachother. We also fixed a product description on all of our produts on the hamburger project. No difficulties today, I thought
+today was successfull and it went pretty smooth and I am overall excited about starting this project and seeing it's result along the way, aswell as hopefully learn alot!
+We also setup the GIT environment if that is not obvious :) 
+The git commands used today was commit and merch which we had to use during the day. Commit is when you commit (submit) your own version of the file you are working on
+to the main. Merch is when you have your own version (branch) which you then merch your branch/part of your code in to the file you took the branch from to connect them
+into one file, sometimes you will have to resolve issues regarding the merch such as functions that are important is missing etc.
+
+Day #2 (2024-09-12) Today we actually setup our Trello platform and started planning the whole project and assigning tasks etc and also estimating how long time each
+task would take. It was kinda difficult to estimate time for each part like designing database etc but ofcourse that would be more accurate overtime when we have
+more experience and done more projects. Now we might have over/under estimated the time needed for each part but we will see! I will be working on setting up
+the database and designing it and then after that working on the backend alongside Casper. I also started researching about databases and how to correctly set
+them up. I learned about Normalizations for database and the different forms like first form normalization, second form normalization etc etc... It was abit hard 
+to grasp the concept so I will continue watching video and doing research so I totally understand the concept before starting to design the database.

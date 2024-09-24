@@ -13,3 +13,39 @@ Commit är när man uppdaterar en fil och merge är när man har en branch som m
 
 Nästa tillfälle så kommer vi fortsätta med att kolla över våran planering med drickor och tillbehör osv...
 När vi känner oss klara med dom så går vi vidare med inlämningsuppgift 2 (punkt 4)
+
+
+dag 2 - 24/09/06 
+
+idag så har jag skapat alla mappar för vårat projekt, där vi ska ha våran kitchenView och vår BurgerOrderer View
+jag har även skapat vart vi ska ha våran server kod. Till alla dessa har jag laddat ner libraries och frameworks samt fixat docker-filer till alla.
+
+libraries och frameworks som vi har valt att använda är react med babel och nginix.
+
+Detta var väldigt svårt då jag inte gjort de innan men jag lyckades till slut få igån våra containers så att man kan se ett
+"Hello World" meddelande i dom.
+
+Jag tog mig hjälp av ChatGPT då docker är ett väl dokumenterat verktyg och många personer använder de vilket gör att chatgpt fungerar super för att hjälpa lösa problem!.
+
+Dag 3 24/09/11
+
+Idag så insåg jag att jag inte hade lagt till en gitignore i våran fil vilket gör så att massvis med onödig data skickas in till vårat repository.
+Så jag började deleta filerna som inte skulle vara där och samtidigt som jag höll på så stängdes datorn av pågrund av lågt batteri.
+Jag gjorde klart ändrignarna dagen efter
+
+dag 4 24/09/12
+
+Som sagt i "Dag 3" så gjorde jag klart gitignoren
+
+
+Dag 5 24/09/25
+
+Idag så har jag spenderat min tid i Figma. Figma är ett design program som kan användas om man vill t.ex designa webbsidor.
+Jag har använt Figma tidigare så de tog inte så lång tid innan jag hittade tillbaks till min tidigare kunskap.
+
+Jag skapade en landing page för frontenden "Burger orderer" samt en "Order Sida" där man bygger sin burgare.
+
+Idag har jag inte känt att det var några konstigheter utan de flöt på ganska bra!.
+
+Imorgon är planen att jag ska fortsätta med figma och även skapa vyer för mindre enheter som mobiler och ipads.
+

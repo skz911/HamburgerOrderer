@@ -57,5 +57,12 @@ I also updated our Trello board with detailed checklists for the upcoming featur
 
 i didnt use any git commands today except git pull,  git add and git commit.
 
+Day 6.5:
+
+After a little break i came back to the project to add all of the pages, thats when i remebered that i needed a router in my website so that i can jump inbetween my order and home page
+So i added react-router-dom to the project and fixed a little bit with the code so that it worked, nothing hard.
+
+this time i used the commands: Git Branch, Git commit and git push.
+
 next time: since i am waiting for the backend to start working i am planning to further refine the pages i have made by adding features and styling.
 

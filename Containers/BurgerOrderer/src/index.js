@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client'; // Updated import for React 18
-
-const App = () => {
-  return <h1>Hello, World!</h1>;
-};
+import './styles/tailwind.css';
+import App from './app';
 
 // Get the root DOM node to render the app into
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -1,51 +1,46 @@
+Day 1 - 24/09/05
 
-Dag 1 - 24/09/05
+Today we started setting up our project. We figured out which environments we will use, which are listed in the Planning folder on GitHub.
+We created a GitHub repository, a Trello board, Slack, and made sure we all have VS Code downloaded.
 
-Idag så har vi börjat att sätta upp vårat projekt, vi har listat ut vilka miljöer vi ska använda som står i Planerings mappen i github.
-Vi har skapat en Github repo, en trello board, slack och vi har alla sett till att vi har VS Code nedladdat.
+Then we also started working on our menu for the restaurant (Sides, Drinks, Burgers).
 
-Sen så började vi även på våran meny som vi ska ha på våran restaurang. (Tillbehör, drickor, hamburgare)
+Today, we didn’t encounter any major issues, and everything went pretty smoothly! It only took a little time to set up all the environments and invite each other.
 
-Idag har vi inte haft några större problem och de har flytit på ganska bra! de tog bara en liten stund att sätta upp alla miljöer och bjuda in varandra.
+Git commands today: Commit and Merge.
+Commit is when you update a file, and merge is when you have a branch that you want to commit into another branch. You resolve any conflicts if they arise.
 
-Gitkommandon idag: Commit och Merge. 
-Commit är när man uppdaterar en fil och merge är när man har en branch som man vill commita in i en annan, då får man lösa eventuella problem om de dyker upp några.
+Next time, we will continue reviewing our plan regarding drinks and sides, etc.
+When we feel finished with that, we’ll move on to submission task 2 (item 4).
 
-Nästa tillfälle så kommer vi fortsätta med att kolla över våran planering med drickor och tillbehör osv...
-När vi känner oss klara med dom så går vi vidare med inlämningsuppgift 2 (punkt 4)
+Day 2 - 24/09/06
 
+Today, I created all the folders for our project, where we will have our kitchenView and our BurgerOrderer View.
+I also created a place for our server code. For all these, I downloaded libraries and frameworks, as well as set up Docker files for everything.
 
-dag 2 - 24/09/06 
+The libraries and frameworks we chose to use are React with Babel and Nginx.
 
-idag så har jag skapat alla mappar för vårat projekt, där vi ska ha våran kitchenView och vår BurgerOrderer View
-jag har även skapat vart vi ska ha våran server kod. Till alla dessa har jag laddat ner libraries och frameworks samt fixat docker-filer till alla.
+This was very difficult since I hadn’t done it before, but I finally managed to get our containers running, so you can see a "Hello World" message in them.
 
-libraries och frameworks som vi har valt att använda är react med babel och nginix.
+I got help from ChatGPT because Docker is a well-documented tool, and many people use it, which makes ChatGPT super helpful for solving problems!
 
-Detta var väldigt svårt då jag inte gjort de innan men jag lyckades till slut få igån våra containers så att man kan se ett
-"Hello World" meddelande i dom.
+Day 3 - 24/09/11
 
-Jag tog mig hjälp av ChatGPT då docker är ett väl dokumenterat verktyg och många personer använder de vilket gör att chatgpt fungerar super för att hjälpa lösa problem!.
+Today, I realized I hadn’t added a .gitignore to our files, which caused a lot of unnecessary data to be sent to our repository.
+So, I started deleting the files that shouldn’t be there, and while I was working, the computer shut down due to low battery.
+I finished the changes the day after.
 
-Dag 3 24/09/11
+Day 4 - 24/09/12
 
-Idag så insåg jag att jag inte hade lagt till en gitignore i våran fil vilket gör så att massvis med onödig data skickas in till vårat repository.
-Så jag började deleta filerna som inte skulle vara där och samtidigt som jag höll på så stängdes datorn av pågrund av lågt batteri.
-Jag gjorde klart ändrignarna dagen efter
+As mentioned on "Day 3," I completed the .gitignore.
 
-dag 4 24/09/12
+Day 5 - 24/09/24
 
-Som sagt i "Dag 3" så gjorde jag klart gitignoren
+Today, I spent my time in Figma. Figma is a design program that can be used to design websites, for example.
+I’ve used Figma before, so it didn’t take long to get back into it.
 
+I created a landing page for the frontend, "Burger Orderer," as well as an "Order Page" where you can build your burger.
 
-Dag 5 24/09/25
+Today, I didn’t feel like there were any issues, and everything went pretty smoothly!
 
-Idag så har jag spenderat min tid i Figma. Figma är ett design program som kan användas om man vill t.ex designa webbsidor.
-Jag har använt Figma tidigare så de tog inte så lång tid innan jag hittade tillbaks till min tidigare kunskap.
-
-Jag skapade en landing page för frontenden "Burger orderer" samt en "Order Sida" där man bygger sin burgare.
-
-Idag har jag inte känt att det var några konstigheter utan de flöt på ganska bra!.
-
-Imorgon är planen att jag ska fortsätta med figma och även skapa vyer för mindre enheter som mobiler och ipads.
-
+Tomorrow, the plan is to continue with Figma and also create views for smaller devices like mobile phones and iPads.

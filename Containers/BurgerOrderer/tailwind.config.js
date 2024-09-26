@@ -1,9 +1,13 @@
 module.exports = {
   content: [
-    './src/**/*.{js,jsx,ts,tsx}',  // Point this to where your JSX files are located
+    './src/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'roboto': ['Roboto', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 };

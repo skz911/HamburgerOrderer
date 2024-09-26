@@ -8,8 +8,9 @@ const HomePage = () => {
   
   //StepsSections Has the "Order now" Button inside of it.
   return (
-    <div className="min-h-screen bg-yellow-100">
+    <div className="min-h-screen">
       <Header />
+      
       <StepsSection />  
       
     </div>

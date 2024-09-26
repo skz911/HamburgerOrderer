@@ -27,6 +27,18 @@ module.exports = {
         test: /\.css$/, // Rule for CSS files
         use: ['style-loader', 'css-loader', 'postcss-loader'], // Add postcss-loader here for Tailwind
       },
+      {
+        test: /\.(png|jpg|jpeg|gif|svg|webp)$/, // Rule for image files
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[hash].[ext]', // [name]: original file name, [hash]: unique hash, [ext]: file extension
+              outputPath: 'assets/images', // Folder to store images in the output directory
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {

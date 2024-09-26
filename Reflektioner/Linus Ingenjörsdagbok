@@ -104,3 +104,9 @@ Tomorrow i want to keep working on the Order-Page since i am done with the Home-
 the first thing i want to work on is the cart idea i had.
 then i also want to make the page responsive for mobile and tablet devices. 
 
+
+day 7.5 --------------------------------------------------------------------------------------------------------------------------------------------
+
+I rembered that i hadnt ran the containers for a while and i wanted to see if it would still work, so i decided to download docker on my home computer. I had some struggles since i had to enable
+cpu virtulization in my BIOS and then when i tried to run "docker compose up" it still wouldnt work, but when i tried it on my shcool laptop it did work. I have no idea why this happend 
+and i do not plan on fixing it in the future.

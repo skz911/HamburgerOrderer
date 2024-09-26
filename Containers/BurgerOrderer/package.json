@@ -2,16 +2,19 @@
   "name": "burgerorderer",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack serve --open",
-    "build": "webpack --mode production"
+  "start": "webpack serve --open --mode development",
+  "build": "webpack --mode production"
   },
+
   "dependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.26.2",
-    "tailwindcss": "^3.4.13"
+    "tailwindcss": "^3.4.13",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -21,11 +24,10 @@
     "css-loader": "^7.1.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.0",
+    "image-webpack-loader": "^8.1.0",
     "postcss-loader": "^8.1.1",
     "style-loader": "^4.0.0",
-    "webpack": "^5.95.0",
     "webpack-bundle-analyzer": "^4.10.2",
-    "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
   }
 }

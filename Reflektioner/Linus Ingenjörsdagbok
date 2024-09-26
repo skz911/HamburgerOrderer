@@ -57,7 +57,7 @@ I also updated our Trello board with detailed checklists for the upcoming featur
 
 i didnt use any git commands today except git pull,  git add and git commit.
 
-Day 6.5:
+Day 6.5: --------------------------------------------------------------------------------------------------------------------------------------------
 
 After a little break i came back to the project to add all of the pages, thats when i remebered that i needed a router in my website so that i can jump inbetween my order and home page
 So i added react-router-dom to the project and fixed a little bit with the code so that it worked, nothing hard.
@@ -65,4 +65,42 @@ So i added react-router-dom to the project and fixed a little bit with the code 
 this time i used the commands: Git Branch, Git commit and git push.
 
 next time: since i am waiting for the backend to start working i am planning to further refine the pages i have made by adding features and styling.
+
+
+Day 7 - 24/09/26 --------------------------------------------------------------------------------------------------------------------------------------------
+
+Today i feel like i have done a lot. I have fixed the css on the Home-Page and also added functionality to the Order-Page. Though, i have not really followed my Figma design since i found it to be ugly
+and i got access to more assets that made me get more inspiration.
+
+Today i learnt alot about the React library for javascript. I have used useState, useEffect, useReducer. Before i didnt know what a reducer was but today i found out that its pretty neat, and nice to use.
+The way i learnt everything for today was through chatGPT. I think that chatgpt comes in really handy and it helps alot with productivity. Since i have already studied Web-Development I kind of know how
+to do everything i need to i can use chatGPT as a tool to get it done faster, and if i get stuck i know what i can tell it to nudge it in the right path.
+
+I had some problems with my Cart and the Items inside of it. I created 3 fake json files with data to simulate fetching from the server. There i had IDs on all of the items 
+and when i added items it saw some of them as the same thing. 
+example:
+
+added 1 hamburger patty
+
+cart[
+{
+  {id: 1, name: "beef patty"}
+
+then adding 1 fries since it also has the ID of 1 in its json file it just adds one more beef patty.
+
+this i had to fix by myself since chatgpt couldnt help and it went good, i slowly worked my way through the code and found the problem, so now i am checking the names instead of IDs. 
+Im also thinking of Changing the way the cart works by creating a object that looks something like this
+
+cart{
+  hamburger: [{}]
+  drinks: [{}]
+  extras: [{}]  
+
+this way i can instead put the items in categories which will also fix my problem (I think)
+
+The git commands i used today was: Git Branch, Git commit -m "", git add ., and git merge "branchname"
+
+Tomorrow i want to keep working on the Order-Page since i am done with the Home-Page.
+the first thing i want to work on is the cart idea i had.
+then i also want to make the page responsive for mobile and tablet devices. 
 

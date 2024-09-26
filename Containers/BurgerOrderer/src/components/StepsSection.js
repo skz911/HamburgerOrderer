@@ -1,10 +1,10 @@
 import React from "react";
 import Step from "./Step";
 import { useNavigate } from 'react-router-dom';
-import step1Img from '../assets/step1.webp';
-import step2Img from '../assets/step2.webp';
-import step3Img from '../assets/step3.webp';
-import step4Img from '../assets/step4.webp';
+import step1Img from '../../public/assets/step1.webp';
+import step2Img from '../../public/assets/step2.webp';
+import step3Img from '../../public/assets/step3.webp';
+import step4Img from '../../public/assets/step4.webp';
 const StepsSection = () => {
   const steps = [
     { title: "Step 1", description: "Build your own burger", Image: step1Img },

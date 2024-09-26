@@ -4,10 +4,9 @@ import StepsSection from "../components/StepsSection";
 import Promotion from "../components/Promotions";
 import Testimonials from "../components/Testimonials";
 
+/* Simple home page, i have created components for each section in the page */
 const HomePage = () => {
 
-  
-  //StepsSections Has the "Order now" Button inside of it.
   return (
     <div className="min-h-screen">
       

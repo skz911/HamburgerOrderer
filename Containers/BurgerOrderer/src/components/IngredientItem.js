@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const IngredientItem = ({ name, price, image }) => {
-  const [quantity, setQuantity] = useState(0);
+const IngredientItem = ({ name, price, image, addIngredient, removeIngredient, cart }) => {
+  // Find the item in the cart to display its quantity
+  const itemInCart = cart.find(item => item.name === name);
+  const quantity = itemInCart ? itemInCart.quantity : 0;
 
-  const increaseQuantity = () => setQuantity(quantity + 1);
-  const decreaseQuantity = () => quantity > 0 && setQuantity(quantity - 1);
+  const increaseQuantity = () => {
+    addIngredient(); 
+  };
+
+  const decreaseQuantity = () => {
+    if (quantity > 0) {
+      removeIngredient(); 
+    }
+  };
 
   return (
     <div className="flex items-center justify-between py-2">

@@ -4,14 +4,14 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js', // The entry point of your app
+  entry: './src/index.js', 
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',  // Path to your template file
+      template: './public/index.html',  
       filename: 'index.html',
     }),
     new BundleAnalyzerPlugin(),
@@ -24,17 +24,17 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        test: /\.css$/, // Rule for CSS files
-        use: ['style-loader', 'css-loader', 'postcss-loader'], // Add postcss-loader here for Tailwind
+        test: /\.css$/, 
+        use: ['style-loader', 'css-loader', 'postcss-loader'], 
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg|webp)$/, // Rule for image files
+        test: /\.(png|jpg|jpeg|gif|svg|webp)$/, 
         use: [
           {
             loader: 'file-loader',
             options: {
-              name: '[name].[hash].[ext]', // [name]: original file name, [hash]: unique hash, [ext]: file extension
-              outputPath: 'assets/images', // Folder to store images in the output directory
+              name: '[name].[hash].[ext]', 
+              outputPath: 'assets/images', 
             },
           },
         ],
@@ -45,11 +45,17 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'), // Serve static files from 'dist'
+    static: [{
+      directory: path.join(__dirname, 'dist'), 
     },
-    compress: true, // Enable gzip compression
-    port: 3000, // Specify the port
-    open: true, // Open the browser after server had been started
+    {
+      directory: path.join(__dirname, 'public'), 
+      publicPath: '/', 
+    },
+    ],
+    compress: true, 
+    port: 3000, 
+    open: true, 
+    historyApiFallback: true,  
   },
 };

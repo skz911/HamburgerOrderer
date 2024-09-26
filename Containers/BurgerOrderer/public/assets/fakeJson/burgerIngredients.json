@@ -1,0 +1,41 @@
+{
+    "hamburger_ingredients": [
+      {
+        "id": 1,
+        "name": "Beef Patty",
+        "price": 20,
+        "image": "/assets/beef_patty.png"
+      },
+      {
+        "id": 2,
+        "name": "Cheddar Cheese",
+        "price": 10,
+        "image": "/assets/cheddar_cheese.png"
+      },
+      {
+        "id": 3,
+        "name": "Lettuce",
+        "price": 5,
+        "image": "/assets/lettuce.png"
+      },
+      {
+        "id": 4,
+        "name": "Tomato",
+        "price": 7,
+        "image": "/assets/tomato.png"
+      },
+      {
+        "id": 5,
+        "name": "Pickles",
+        "price": 5,
+        "image": "/assets/pickles.png"
+      },
+      {
+        "id": 6,
+        "name": "Bacon",
+        "price": 15,
+        "image": "/assets/bacon.png"
+      }
+    ]
+  }
+  

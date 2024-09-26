@@ -1,19 +1,24 @@
 import React from 'react';
 import IngredientItem from './IngredientItem';
 
-const IngredientList = () => {
-  const ingredients = [
-    { name: 'Cheese', price: 10, image: '/path-to-cheese-image' },
-    { name: 'Lettuce', price: 5, image: '/path-to-lettuce-image' },
-    { name: 'Tomato', price: 8, image: '/path-to-tomato-image' },
-    // Add more ingredients as needed
-  ];
-
+const IngredientList = ({ ingredients, addIngredient, removeIngredient, cart }) => {
   return (
-    <div className="w-1/3 p-4 bg-white rounded-lg shadow-md">
-      {ingredients.map((ingredient, index) => (
-        <IngredientItem key={index} name={ingredient.name} price={ingredient.price} image={ingredient.image} />
-      ))}
+    <div className="w-full p-4 bg-white rounded-lg shadow-md font-roboto">
+      {ingredients.length > 0 ? (
+        ingredients.map((ingredient) => (
+          <IngredientItem
+            key={ingredient.id}
+            name={ingredient.name}
+            price={ingredient.price}
+            image={ingredient.image}
+            addIngredient={() => addIngredient(ingredient)} //adds specified ingredient to cart
+            removeIngredient={() => removeIngredient(ingredient)} //removes specified ingredient from crat
+            cart={cart}  
+          />
+        ))
+      ) : (
+        <p>No ingredients available.</p>
+      )}
     </div>
   );
 };

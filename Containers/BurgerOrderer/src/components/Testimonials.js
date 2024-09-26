@@ -8,9 +8,9 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="p-20 mb-96 ">
-      <h2 className="text-center text-3xl font-bold mb-8">What Our Customers Are Saying</h2>
-      <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-8">
+    <section className="p-20 py-72 bg-gray-100">
+      <h2 className="text-center text-3xl font-bold mb-16">What Our Customers Are Saying</h2>
+      <div className="flex flex-col md:flex-row justify-center md:space-y-0 md:space-x-8 place-items-center space-y-12">
         {testimonials.map((testimonial, index) => (
           <div key={index} className="w-1/3 text-center">
             <p className="italic">"{testimonial.quote}"</p>

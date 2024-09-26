@@ -1,6 +1,5 @@
 import React from "react";
 
-import Header from "../components/Header";
 import StepsSection from "../components/StepsSection";
 
 const HomePage = () => {
@@ -9,7 +8,7 @@ const HomePage = () => {
   //StepsSections Has the "Order now" Button inside of it.
   return (
     <div className="min-h-screen">
-      <Header />
+      
       
       <StepsSection />  
       

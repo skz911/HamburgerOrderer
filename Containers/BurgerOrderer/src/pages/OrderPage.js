@@ -7,7 +7,6 @@ import OrderButton from '../components/OrderButton';
 const OrderPage = () => {
   return (
     <div className="min-h-screen">
-      <Header />
       <div className="container mx-auto flex py-10">
         <IngredientList />
         <div className="flex-1 flex flex-col items-center">

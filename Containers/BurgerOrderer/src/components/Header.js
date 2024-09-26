@@ -11,7 +11,7 @@ const Header = () => {
 
 
   return (
-    <header className=" shadow-lg px-12 md:mb-32">
+    <header className=" shadow-lg px-12">
       <div className="container mx-auto flex justify-between items-end">
         <nav className="space-x-10 mb-10 font-roboto font-bold">
           <a href="#" className="text-gray-800 hover:text-yellow-500">MENY</a>

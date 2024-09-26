@@ -19,7 +19,7 @@ const StepsSection = () => {
     navigate('/order');
   };
   return (
-    <section className="container min-h-screen mx-auto pt-10 px-10 sm:px-14 md:px-20  ">
+    <section className="container min-h-fit mx-auto py-40 px-10 sm:px-14 md:px-20  ">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-12 place-items-center md:place-items-start ">
         {steps.map((step, index) => (
           <Step key={index} title={step.title} description={step.description} Image={step.Image}/>

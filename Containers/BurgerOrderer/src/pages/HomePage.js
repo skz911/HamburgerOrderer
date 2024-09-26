@@ -1,6 +1,8 @@
 import React from "react";
 
 import StepsSection from "../components/StepsSection";
+import Promotion from "../components/Promotions";
+import Testimonials from "../components/Testimonials";
 
 const HomePage = () => {
 
@@ -9,9 +11,9 @@ const HomePage = () => {
   return (
     <div className="min-h-screen">
       
-      
+      <Promotion/>
       <StepsSection />  
-      
+      <Testimonials/>
     </div>
   );
 };

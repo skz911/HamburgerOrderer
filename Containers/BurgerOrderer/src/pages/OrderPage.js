@@ -1,5 +1,4 @@
 import React from 'react';
-import Header from '../components/Header'; 
 import IngredientList from '../components/IngredientList.js';
 import OrderSummary from '../components/OrderSummary';
 import OrderButton from '../components/OrderButton'; 

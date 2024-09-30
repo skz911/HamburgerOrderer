@@ -110,3 +110,10 @@ day 7.5 ------------------------------------------------------------------------
 I rembered that i hadnt ran the containers for a while and i wanted to see if it would still work, so i decided to download docker on my home computer. I had some struggles since i had to enable
 cpu virtulization in my BIOS and then when i tried to run "docker compose up" it still wouldnt work, but when i tried it on my shcool laptop it did work. I have no idea why this happend 
 and i do not plan on fixing it in the future.
+
+
+
+day 8 30/09/24 --------------------------------------------------------------------------------------------------------------------------------------------
+
+Today i redid the kitchenview folder and removed react, other libraries, and unnecessary dependencies, this is so that we will have a clean directory and it will
+be as simple as possible to code and create the KitchenView.

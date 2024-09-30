@@ -1,24 +1,9 @@
-# client-frontend/Dockerfile
+FROM nginx:alpine
 
-FROM node:18 as build-stage
+# Copy your custom Nginx config file
+COPY ./nginx.conf /etc/nginx/nginx.conf
 
-WORKDIR /app
-
-COPY package.json package-lock.json ./
-RUN npm install
-
-COPY . .
-
-RUN npm run build
-
-FROM nginx:alpine as production-stage
-
-# Copy the production build from the build stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-
-# Copy custom Nginx config
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY default.conf /etc/nginx/conf.d/default.conf
+COPY ./src /usr/share/nginx/html
 
 EXPOSE 80
 

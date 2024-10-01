@@ -1,4 +1,3 @@
-# docker-compose.yml
 services:
   client:
     build:
@@ -23,16 +22,21 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - DATABASE_URL=mongodb://mongo:27017/burger-db
+      - DATABASE_URL=mysql://user:BTHDonken@mysql:3306/burger_db
     depends_on:
-      - mongo
+      - mysql
 
-  mongo:
-    image: mongo:latest
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: hamburger
+      MYSQL_DATABASE: burger_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: BTHDonken
     ports:
-      - "27017:27017"
+      - "3306:3306"
     volumes:
-      - mongo-data:/data/db
+      - mysql-data:/var/lib/mysql
 
 volumes:
-  mongo-data:
+  mysql-data:

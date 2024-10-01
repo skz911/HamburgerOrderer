@@ -25,3 +25,11 @@ system in the database it got abit more complicated and I feel more secure about
 the backend server. I came to an understanding that the database structure will most likely change during the timeline, but for now I finished the base and I can continue
 to work further on the project.
 I used commit and also git clone, to clone the current version of the project to visual studio code.
+
+Day #4 (2024-09-30) Today I got the project working with the containers and downloaded dockers desktop. I also made a quick skeleton on the backend server so we have that running. 
+Tomorrow I plan on changing the current database container (MongoDB) to mySQL, and also setting up the database so we have the database side of the project completely finished.
+I ran into some issues regarding the GIT when I was supposed to commit and I had an issue where it said something about a git commit already being in process. However, if I remember
+correctly I just had to remove an index.lock file from the /.git folder and it went back to working again :) Overall a pretty successfull day if I say so myself and now I feel like
+I have the project in my hands and less research & more fun programming.
+Today I used GIT commit, GIT merge and GIT clone.
+

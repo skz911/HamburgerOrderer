@@ -1,8 +1,18 @@
+/**
+ * @module OrderComponents
+ */
+
 import React from 'react';
 
-/* setCurrentSection changes which section is shown in the order-page, since we created a state in the OrderPage called currentSection 
-i have sent in the setState called setCurrentSection */
-
+/**
+ * OrderNav component provides navigation buttons to switch between sections of the order page.
+ * Each button calls `setCurrentSection` to change the displayed section.
+ * 
+ * @component
+ * @memberof module:OrderComponents
+ * @param {Function} setCurrentSection - A function that sets the current section to be displayed on the order page.
+ * @returns {JSX.Element} The rendered navigation component with buttons for each section.
+ */
 
 const OrderNav = ({ setCurrentSection }) => {
   return (

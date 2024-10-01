@@ -1,4 +1,16 @@
+/**
+ * @module HomeComponents
+ */
+
 import React from 'react';
+
+/**
+ * Promotion component displays a promotional message offering a limited-time deal.
+ * 
+ * @component
+ * @memberof module:HomeComponents
+ * @returns {JSX.Element} The rendered promotion section.
+ */
 
 const Promotion = () => {
   return (

@@ -1,29 +1,33 @@
+/**
+ * @module OrderPage
+ * 
+ */
+
 import React, { useReducer, useState, useEffect } from 'react';
 import OrderNav from '../components/OrderNav';
 import IngredientList from '../components/IngredientList';
 import Cart from '../components/Cart';
-/* this page is pretty complicated  
 
-  it starts by initializing the state, a cart array, and then arrays for ingredients, drinks and extra items
 
-  It then has a reducer that is a react hook that handles complex state logic. you could use useState for the same thing
-  but using a reducer allows for better state management. I also used a reducer to learn more about how it works.
-
-  it has setting actions that sets the ingredients taken from the fake api calls that i fetch from the assets/fakeJson directory
-
-  it then has add item and remove item that checks the item names form the ingredient arrays in the state and compares it to
-  the items in the cart and adds or removes "quantity" form the cart.
-
-  you can use the Reducer by using the command "dispatch ( type: command, payload: data ) "
-
-*/
+/**
+ * Initial state for the useReducer hook, representing the ingredients, drinks, extras, and cart items.
+ * @type {Object}
+ */
 const initialState = {
   ingredients: [],
   drinks: [],
   extras: [],
   cart: [],
 };
-
+/**
+ * Reducer function to manage the state for ingredients, drinks, extras, and cart items.
+ * 
+ * @function reducer
+ * @memberof module:OrderPage
+ * @param {Object} state - The current state of the order.
+ * @param {Object} action - The action to perform.
+ * @returns {Object} - The updated state.
+ */
 const reducer = (state, action) => {
   switch (action.type) {
     case 'SET_INGREDIENTS':
@@ -72,11 +76,23 @@ const reducer = (state, action) => {
       return state;
   }
 };
-
+/**
+ * OrderPage component allows users to add ingredients, drinks, and extras to their order.
+ * It manages the state of available items and the user's cart using the useReducer hook.
+ * 
+ * @component
+ * @exports OrderPage
+ * @memberof module:OrderPage
+ * @returns {JSX.Element} The rendered order page with navigation, ingredient list, and cart.
+ */
 const OrderPage = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [currentSection, setCurrentSection] = useState('hamburger');
 
+
+   /**
+   * Fetches ingredients, drinks, and extras from local JSON files and dispatches them to the state.
+   * Uses useEffect to fetch data once on component mount.
+   */
   useEffect(() => {
     const fetchHamburgerIngredients = async () => {
       const response = await fetch('/assets/fakeJson/burgeringredients.json');
@@ -101,15 +117,37 @@ const OrderPage = () => {
     fetchExtras();
   }, []);
 
+  /**
+   * Adds an item (ingredient, drink, or extra) to the cart.
+   * @function addItem
+   * @memberof module:OrderPage
+   * @param {Object} item - The item to be added to the cart.
+   */
   const addItem = (item) => {
     console.log(item)
-    dispatch({ type: 'ADD_ITEM', payload: item });  // Add specific ingredient to cart
+    dispatch({ type: 'ADD_ITEM', payload: item });  
   };
 
+  /**
+   * Removes an item (ingredient, drink, or extra) to the cart.
+   * @function removeItem
+   * @memberof module:OrderPage
+   * @param {Object} item - The item to be removed from the cart.
+   */
   const removeItem = (item) => {
-    dispatch({ type: 'REMOVE_ITEM', payload: item });  // Remove specific ingredient from cart
+    dispatch({ type: 'REMOVE_ITEM', payload: item }); 
   };
 
+  const [currentSection, setCurrentSection] = useState('hamburger');
+   /**
+   * `currentSection` determines which section (hamburger, drinks, or extras) is currently visible to the user.
+   * This is controlled by the `OrderNav` component, which updates the state through `setCurrentSection`.
+   * 
+   * Possible values:
+   * - 'hamburger': Displays the hamburger ingredients section.
+   * - 'drinks': Displays the drinks section.
+   * - 'extras': Displays the extras section.
+   */
   return (
     <div className="relative min-h-screen bg-gray-50 ">
       <OrderNav setCurrentSection={setCurrentSection} />

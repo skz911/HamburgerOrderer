@@ -1,4 +1,16 @@
+/**
+ * @module HomeComponents
+ */
+
 import React from 'react';
+
+/**
+ * Testimonials component displays customer feedback in a structured section.
+ * 
+ * @component
+ * @memberof module:HomeComponents
+ * @returns {JSX.Element} The rendered testimonials section with customer feedback.
+ */
 
 const Testimonials = () => {
   const testimonials = [

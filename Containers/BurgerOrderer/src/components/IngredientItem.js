@@ -1,7 +1,26 @@
+/**
+ * @module OrderComponents
+ */
+
 import React from 'react';
 
+
+/**
+ * IngredientItem component displays an individual ingredient with its name, price, image, and quantity in the cart.
+ * 
+ * @component
+ * @memberof module:OrderComponents
+ * @param {string} name - The name of the ingredient.
+ * @param {number} price - The price of the ingredient.
+ * @param {string} image - The URL of the ingredient's image.
+ * @param {Function} addIngredient - Function to add the ingredient to the cart.
+ * @param {Function} removeIngredient - Function to remove the ingredient from the cart.
+ * @param {Object[]} cart - The current cart items.
+ * @returns {JSX.Element} The rendered ingredient item component.
+ */
+
 const IngredientItem = ({ name, price, image, addIngredient, removeIngredient, cart }) => {
-  // Find the item in the cart to display its quantity
+
   const itemInCart = cart.find(item => item.name === name);
   const quantity = itemInCart ? itemInCart.quantity : 0;
 

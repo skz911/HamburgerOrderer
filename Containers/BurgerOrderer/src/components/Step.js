@@ -1,4 +1,19 @@
+/**
+ * @module HomeComponents
+ */
+
 import React from "react";
+
+/**
+ * Step component displays an individual step in a process, including an image, title, and description.
+ * 
+ * @component
+ * @memberof module:HomeComponents
+ * @param {string} title - The title of the step.
+ * @param {string} description - A brief description of the step.
+ * @param {string} Image - The source URL for the image representing the step.
+ * @returns {JSX.Element} The rendered step component with an image, title, and description.
+ */
 
 const Step = ({ title, description, Image }) => {
   return (

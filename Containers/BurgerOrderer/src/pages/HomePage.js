@@ -4,7 +4,14 @@ import StepsSection from "../components/StepsSection";
 import Promotion from "../components/Promotions";
 import Testimonials from "../components/Testimonials";
 
-/* Simple home page, i have created components for each section in the page */
+/**
+ * renders the Homepage which has a Promotion component,
+ * a stepsSection component and testimonails component.
+ * 
+ * 
+ * @component
+ * @returns {JSX.Element}
+ */
 const HomePage = () => {
 
   return (

@@ -2,10 +2,10 @@
   "name": "burgerorderer",
   "version": "1.0.0",
   "scripts": {
-  "start": "webpack serve --open --mode development",
-  "build": "webpack --mode production"
+    "start": "webpack serve --open --mode development",
+    "build": "webpack --mode production",
+    "doc": "jsdoc -c jsdoc.json"
   },
-
   "dependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
@@ -22,9 +22,11 @@
     "@babel/preset-react": "^7.24.7",
     "babel-loader": "^8.0.0",
     "css-loader": "^7.1.2",
+    "docdash": "^2.0.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.0",
     "image-webpack-loader": "^8.1.0",
+    "jsdoc": "^4.0.3",
     "postcss-loader": "^8.1.1",
     "style-loader": "^4.0.0",
     "webpack-bundle-analyzer": "^4.10.2",

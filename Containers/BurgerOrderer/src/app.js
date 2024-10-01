@@ -4,8 +4,16 @@ import HomePage from './pages/HomePage';
 import OrderPage from './pages/OrderPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
-/* this is the main page, here i have put a router so that i can jump inbetween pages
-i have also put a header and a footer in this page so that they are always visible in the site.  */ 
+
+/**
+ * Main application component that sets up the routing and layout for the application.
+ * 
+ * It uses `react-router-dom` for handling page navigation between the home and order pages.
+ * The layout includes a header, footer, and a flexible main content area.
+ * 
+ * @component
+ * @returns {JSX.Element} The application layout with routing.
+ */
 const App = () => {
   return (
     <Router>

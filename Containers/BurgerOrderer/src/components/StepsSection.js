@@ -1,3 +1,7 @@
+/**
+ * @module HomeComponents
+ */
+
 import React from "react";
 import Step from "./Step";
 import { useNavigate } from 'react-router-dom';
@@ -5,6 +9,15 @@ import step1Img from '../../public/assets/step1.webp';
 import step2Img from '../../public/assets/step2.webp';
 import step3Img from '../../public/assets/step3.webp';
 import step4Img from '../../public/assets/step4.webp';
+
+/**
+ * StepsSection component displays a series of steps explaining the burger-making process.
+ * 
+ * @component
+ * @memberof module:HomeComponents
+ * @returns {JSX.Element} The rendered steps section with a list of steps.
+ */
+
 const StepsSection = () => {
   const steps = [
     { title: "Step 1", description: "Build your own burger", Image: step1Img },

@@ -1,4 +1,17 @@
+/**
+ * @module OrderComponents
+ */
+
+
 import React from "react";
+
+/**
+ * OrderButton component renders a button that allows the user to place an order.
+ * 
+ * @component
+ * @memberof module:OrderComponents
+ * @returns {JSX.Element} The rendered button component for placing an order.
+ */
 
 const OrderButton = () => {
   return (

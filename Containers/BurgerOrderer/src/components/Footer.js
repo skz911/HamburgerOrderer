@@ -1,6 +1,22 @@
+/**
+ * @module LayoutComponents
+ */
 
 import React from "react";
 
+/**
+ * Footer component that displays navigation links and social media icons.
+ * 
+ * The footer contains two main sections:
+ * 1. Navigation links to different pages (Home, About Us, Contact, Privacy Policy).
+ * 2. Social media links (Facebook, Twitter, Instagram) with respective icons.
+ * 
+ * Additionally, the footer displays the current year and a copyright message.
+ * 
+ * @component
+ * @memberof module:LayoutComponents
+ * @returns {JSX.Element} The rendered footer component.
+ */
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-6">

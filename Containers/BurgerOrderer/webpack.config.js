@@ -1,13 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-// Detect environment (production or development)
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
   return {
-    mode: isProduction ? 'production' : 'development', // Use production optimizations if in production
+    mode: isProduction ? 'production' : 'development',
     entry: './src/index.js',
     output: {
       path: path.resolve(__dirname, 'dist'),
@@ -15,10 +13,9 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './public/index.html', 
+        template: './public/index.html',
         filename: 'index.html',
       }),
-      ...(isProduction ? [] : [new BundleAnalyzerPlugin()]), // Only use BundleAnalyzer in dev mode
     ],
     module: {
       rules: [
@@ -28,16 +25,16 @@ module.exports = (env, argv) => {
           use: 'babel-loader',
         },
         {
-          test: /\.css$/, 
+          test: /\.css$/,
           use: ['style-loader', 'css-loader', 'postcss-loader'],
         },
         {
-          test: /\.(png|jpg|jpeg|gif|svg|webp)$/, 
+          test: /\.(png|jpe?g|gif|webp|svg)$/,
           use: [
             {
               loader: 'file-loader',
               options: {
-                name: '[name].[hash].[ext]', 
+                name: '[name].[hash].[ext]',
                 outputPath: 'assets/images',
               },
             },
@@ -55,6 +52,9 @@ module.exports = (env, argv) => {
                   quality: [0.65, 0.90],
                   speed: 4,
                 },
+                gifsicle: {
+                  interlaced: false,
+                },
                 webp: {
                   quality: 75,
                 },
@@ -68,13 +68,7 @@ module.exports = (env, argv) => {
       extensions: ['.js', '.jsx'],
     },
     devServer: {
-      static: [{
-        directory: path.join(__dirname, 'dist'),
-      },
-      {
-        directory: path.join(__dirname, 'public'),
-        publicPath: '/',
-      }],
+      static: path.join(__dirname, 'dist'),
       compress: true,
       port: 3000,
       open: true,

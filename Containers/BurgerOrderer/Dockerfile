@@ -1,6 +1,9 @@
 # Base stage for building the client application
 FROM node:18-alpine as build-stage
 
+# Install necessary packages for compiling gifsicle and other tools
+RUN apk add --no-cache bash curl autoconf automake libtool build-base zlib-dev libpng-dev nasm 
+
 # Set environment variables for security and consistency
 ENV NODE_ENV=production
 ENV PATH=/app/node_modules/.bin:$PATH
@@ -9,17 +12,21 @@ ENV PATH=/app/node_modules/.bin:$PATH
 WORKDIR /app
 
 # Copy only the package.json and package-lock.json to install dependencies first
+# Copy only the package.json and package-lock.json to install dependencies first
 COPY package.json package-lock.json ./
 
-# Install ALL dependencies, including devDependencies for the build stage
+# Install all dependencies, including devDependencies
 RUN npm ci
 
+# Copy the rest of the source code to the container
 # Copy the rest of the source code to the container
 COPY . .
 
 # Build the app in production mode
+# Build the app in production mode
 RUN npm run build
 
+# Stage for serving the application using a minimal Nginx image
 # Stage for serving the application using a minimal Nginx image
 FROM nginx:alpine as production-stage
 

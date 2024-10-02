@@ -35,10 +35,10 @@ services:
       MYSQL_DATABASE: burger_db
       MYSQL_USER: user
       MYSQL_PASSWORD: BTHDonken
-    ports:  # Corrected indentation
-      - "3306:3306"  # Corrected indentation
-    volumes:  # Corrected indentation
-      - mysql-data:/var/lib/mysql  # Corrected indentation
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
 
 volumes:
   mysql-data:

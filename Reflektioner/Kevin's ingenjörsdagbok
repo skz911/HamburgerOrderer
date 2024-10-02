@@ -33,3 +33,9 @@ correctly I just had to remove an index.lock file from the /.git folder and it w
 I have the project in my hands and less research & more fun programming.
 Today I used GIT commit, GIT merge and GIT clone.
 
+Day #5 (2024-10-01) As I stated yesterday I was planning on changing the current database container (MongoDB) to MySQL. Which I successfully did and now we are using MySQL and I managed
+to get it working with the containers and uploaded it to github. However, Today when I opened the project I could not start the dockers anymore and it did not work. However, I searched around
+abit on google and tried clearing the cache of all the dockers and redownloading them and that seemed to fix it. Today I also for the first time if I recall correctly, used git branches, when I take a version of the 
+project and I continue developing on that part (branch) by myself and do all the coding and testing there and then if it is good, I will push it into the main project. I also had to merge the project. But overall
+a good day and tomorrow I plan on adding the actual database and structuring it will tables etc + I will try to get the get/post requests working and try to see if the server endpoints work :)
+

@@ -1,4 +1,5 @@
-# docker-compose.yml
+version: '3.8'  # You may specify the version of Docker Compose you're using
+
 services:
   client:
     build:
@@ -34,10 +35,10 @@ services:
       MYSQL_DATABASE: burger_db
       MYSQL_USER: user
       MYSQL_PASSWORD: BTHDonken
-    ports:
-      - "3306:3306"
-    volumes:
-      - mysql-data:/var/lib/mysql
+    ports:  # Corrected indentation
+      - "3306:3306"  # Corrected indentation
+    volumes:  # Corrected indentation
+      - mysql-data:/var/lib/mysql  # Corrected indentation
 
 volumes:
   mysql-data:

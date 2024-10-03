@@ -117,3 +117,32 @@ day 8 30/09/24 -----------------------------------------------------------------
 
 Today i redid the kitchenview folder and removed react, other libraries, and unnecessary dependencies, this is so that we will have a clean directory and it will
 be as simple as possible to code and create the KitchenView.
+
+
+
+day 9 01/10/24 --------------------------------------------------------------------------------------------------------------------------------------------
+
+Today i created documentation for my sourcecode with the help of JSDocs, i created JSDocs comments on my files and React components so that i can run a automized documentation generation program
+I had some problems with dependencies and such but it was pretty easy to fix. I also moved my file out of OneDrive since that caused some trouble too.
+
+I used Git Fetch Git Pull Git Push Git Merge Git Branch Git Checkout
+
+day 10 03/10/24 --------------------------------------------------------------------------------------------------------------------------------------------
+
+Today i got to fixing the order page. I changed the layout a little bit and also fixed the cart logic so that it works better. 
+As i previously said in this logbook i changed the state to this
+
+cart{
+  hamburger: [{}]
+  drinks: [{}]
+  extras: [{}]  
+
+which helped me create more readable code and it was also more easy to handle.
+
+It is getting harder and harder every day to navigate in the code since its only getting larger which might be a problem in the future if someone wants to join. 
+I might have to go and refactor some code also.
+
+the thing on tomorrows agenda is fixing the css so that it looks better. Then i also want to fix the Json structure for checkout so that i can send the order to our server.
+
+Today i used: I used Git Fetch Git Pull Git Push Git Merge Git Branch Git Checkout
+

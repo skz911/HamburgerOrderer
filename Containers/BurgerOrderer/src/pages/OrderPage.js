@@ -7,18 +7,158 @@ import React, { useReducer, useState, useEffect } from 'react';
 import OrderNav from '../components/OrderNav';
 import IngredientList from '../components/IngredientList';
 import Cart from '../components/Cart';
-
+import DrinkForm from '../components/DrinkForm';
+import ExtraList from '../components/ExtraList';
 
 /**
  * Initial state for the useReducer hook, representing the ingredients, drinks, extras, and cart items.
  * @type {Object}
  */
 const initialState = {
-  ingredients: [],
-  drinks: [],
-  extras: [],
-  cart: [],
+  cart: {
+    burgers: [], // Array for burger orders
+    drinks: [],  // Array for drinks
+    extras: [],  // Array for extra items
+  },
 };
+
+const burgerIngredients = {
+  hamburger_ingredients: [
+    {
+      id: 1,
+      name: "Lettuce",
+      type: "vegetable",
+      price: 5,
+      image: "/path-to-lettuce-image",
+    },
+    {
+      id: 2,
+      name: "Tomato",
+      type: "vegetable",
+      price: 7,
+      image: "/path-to-tomato-image",
+    },
+    {
+      id: 3,
+      name: "Cheese",
+      type: "dairy",
+      price: 10,
+      image: "/path-to-cheese-image",
+    },
+    {
+      id: 4,
+      name: "Beef Patty",
+      type: "meat",
+      price: 15,
+      image: "/path-to-beefpatty-image",
+    },
+    {
+      id: 5,
+      name: "Bacon",
+      type: "meat",
+      price: 12,
+      image: "/path-to-bacon-image",
+    },
+    {
+      id: 6,
+      name: "Onion",
+      type: "vegetable",
+      price: 4,
+      image: "/path-to-onion-image",
+    },
+    {
+      id: 7,
+      name: "Pickles",
+      type: "vegetable",
+      price: 3,
+      image: "/path-to-pickles-image",
+    },
+    {
+      id: 8,
+      name: "Ketchup",
+      type: "condiment",
+      price: 2,
+      image: "/path-to-ketchup-image",
+    },
+    {
+      id: 9,
+      name: "Mustard",
+      type: "condiment",
+      price: 2,
+      image: "/path-to-mustard-image",
+    },
+    {
+      id: 10,
+      name: "Mayonnaise",
+      type: "condiment",
+      price: 3,
+      image: "/path-to-mayonnaise-image",
+    },
+  ],
+};
+
+const extraItems = {
+  extra_items: [
+    {
+      id: 1,
+      name: "Fries",
+      type: "side",
+      price: 10,
+      image: "/path-to-fries-image",
+    },
+    {
+      id: 2,
+      name: "Onion Rings",
+      type: "side",
+      price: 12,
+      image: "/path-to-onion-rings-image",
+    },
+    {
+      id: 3,
+      name: "Mozzarella Sticks",
+      type: "side",
+      price: 15,
+      image: "/path-to-mozzarella-sticks-image",
+    },
+    {
+      id: 4,
+      name: "BBQ Sauce",
+      type: "sauce",
+      price: 3,
+      image: "/path-to-bbq-sauce-image",
+    },
+    {
+      id: 5,
+      name: "Ketchup",
+      type: "sauce",
+      price: 2,
+      image: "/path-to-ketchup-image",
+    },
+    {
+      id: 6,
+      name: "Mayonnaise",
+      type: "sauce",
+      price: 3,
+      image: "/path-to-mayonnaise-image",
+    },
+    {
+      id: 7,
+      name: "Garlic Dip",
+      type: "sauce",
+      price: 4,
+      image: "/path-to-garlic-dip-image",
+    },
+    {
+      id: 8,
+      name: "Cheese Dip",
+      type: "sauce",
+      price: 5,
+      image: "/path-to-cheese-dip-image",
+    },
+  ],
+};
+
+
 /**
  * Reducer function to manage the state for ingredients, drinks, extras, and cart items.
  * 
@@ -30,52 +170,49 @@ const initialState = {
  */
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'SET_INGREDIENTS':
-      return { ...state, ingredients: action.payload };
-    case 'SET_DRINKS':
-      return { ...state, drinks: action.payload };
-    case 'SET_EXTRAS':
-      return { ...state, extras: action.payload };
-    case 'ADD_ITEM': {
-      const itemExists = state.cart.find(item => item.name === action.payload.name);
-      if (itemExists) {
+    case 'ADD_BURGER':
+      return { 
+        ...state, 
+        cart: { 
+          ...state.cart, 
+          burgers: [...state.cart.burgers, action.payload] 
+        } 
+      };
+
+    case 'ADD_DRINK':
+      return { 
+        ...state, 
+        cart: { 
+          ...state.cart, 
+          drinks: [...state.cart.drinks, action.payload] 
+        } 
+      };
+
+    case 'ADD_EXTRA':
+      return { 
+        ...state, 
+        cart: { 
+          ...state.cart, 
+          extras: [...state.cart.extras, action.payload] 
+        } 
+      };
+
+      case 'REMOVE_ITEM': {
+        const { item, type } = action.payload;
         return {
           ...state,
-          cart: state.cart.map(item =>
-            item.name === action.payload.name
-              ? { ...item, quantity: item.quantity + 1 }
-              : item
-          ),
-        };
-      } else {
-        return {
-          ...state,
-          cart: [...state.cart, { ...action.payload, quantity: 1 }],
-        };
-      }
-    }
-    case 'REMOVE_ITEM': {
-      const itemExists = state.cart.find(item => item.name === action.payload.name);
-      if (itemExists && itemExists.quantity > 1) {
-        return {
-          ...state,
-          cart: state.cart.map(item =>
-            item.name === action.payload.name
-              ? { ...item, quantity: item.quantity - 1 }
-              : item
-          ),
-        };
-      } else {
-        return {
-          ...state,
-          cart: state.cart.filter(item => item.name !== action.payload.name),
+          cart: {
+            ...state.cart,
+            [type]: state.cart[type].filter(cartItem => cartItem !== item),
+          },
         };
       }
-    }
+
     default:
       return state;
   }
 };
+
 /**
  * OrderPage component allows users to add ingredients, drinks, and extras to their order.
  * It manages the state of available items and the user's cart using the useReducer hook.
@@ -85,102 +222,68 @@ const reducer = (state, action) => {
  * @memberof module:OrderPage
  * @returns {JSX.Element} The rendered order page with navigation, ingredient list, and cart.
  */
+
 const OrderPage = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-
-   /**
-   * Fetches ingredients, drinks, and extras from local JSON files and dispatches them to the state.
-   * Uses useEffect to fetch data once on component mount.
-   */
-  useEffect(() => {
-    const fetchHamburgerIngredients = async () => {
-      const response = await fetch('/assets/fakeJson/burgeringredients.json');
-      const data = await response.json();
-      dispatch({ type: 'SET_INGREDIENTS', payload: data.hamburger_ingredients });
-    };
-
-    const fetchDrinks = async () => {
-      const response = await fetch('/assets/fakeJson/drinks.json');
-      const data = await response.json();
-      dispatch({ type: 'SET_DRINKS', payload: data.drinks });
-    };
-
-    const fetchExtras = async () => {
-      const response = await fetch('/assets/fakeJson/extra.json');
-      const data = await response.json();
-      dispatch({ type: 'SET_EXTRAS', payload: data.extra_items });
-    };
-
-    fetchHamburgerIngredients();
-    fetchDrinks();
-    fetchExtras();
-  }, []);
-
-  /**
-   * Adds an item (ingredient, drink, or extra) to the cart.
-   * @function addItem
-   * @memberof module:OrderPage
-   * @param {Object} item - The item to be added to the cart.
-   */
-  const addItem = (item) => {
-    console.log(item)
-    dispatch({ type: 'ADD_ITEM', payload: item });  
-  };
-
-  /**
-   * Removes an item (ingredient, drink, or extra) to the cart.
-   * @function removeItem
-   * @memberof module:OrderPage
-   * @param {Object} item - The item to be removed from the cart.
-   */
-  const removeItem = (item) => {
-    dispatch({ type: 'REMOVE_ITEM', payload: item }); 
-  };
-
+  const [currentBurger, setCurrentBurger] = useState([]);
   const [currentSection, setCurrentSection] = useState('hamburger');
-   /**
-   * `currentSection` determines which section (hamburger, drinks, or extras) is currently visible to the user.
-   * This is controlled by the `OrderNav` component, which updates the state through `setCurrentSection`.
-   * 
-   * Possible values:
-   * - 'hamburger': Displays the hamburger ingredients section.
-   * - 'drinks': Displays the drinks section.
-   * - 'extras': Displays the extras section.
-   */
+
+  const addIngredientToBurger = (ingredient) => {
+    setCurrentBurger([...currentBurger, ingredient]);
+  };
+
+  const addBurgerToCart = () => {
+    dispatch({ type: 'ADD_BURGER', payload: currentBurger });
+    setCurrentBurger([]);
+  };
+
+  const addDrinkToCart = (drink) => {
+    dispatch({ type: 'ADD_DRINK', payload: drink });
+  };
+
+  const addExtraToCart = (extra) => {
+    dispatch({ type: 'ADD_EXTRA', payload: extra });
+  };
+
+  const removeItem = (item, type) => {
+    dispatch({ type: 'REMOVE_ITEM', payload: { item, type } });
+  };
+  
+  
+
   return (
-    <div className="relative min-h-screen bg-gray-50 ">
-      <OrderNav setCurrentSection={setCurrentSection} />
+    <div className="relative min-h-screen bg-gray-50">
+      <OrderNav setCurrentSection={setCurrentSection} /> {/* Pass setCurrentSection to OrderNav */}
 
       <div className="container mx-auto py-8 flex justify-between space-x-10">
         <div className="w-2/3">
+          {/* Conditionally render based on currentSection */}
           {currentSection === 'hamburger' && (
-            <IngredientList
-              ingredients={state.ingredients}
-              addIngredient={addItem}
-              removeIngredient={removeItem}
-              cart={state.cart}
-            />
+            <>
+              <IngredientList
+                ingredients={burgerIngredients}
+                addIngredient={addIngredientToBurger}
+                cart={state.cart.burgers}
+              />
+              <button onClick={addBurgerToCart}>Add Burger to Cart</button>
+            </>
           )}
-          {currentSection === 'extras' && (
-            <IngredientList
-              ingredients={state.extras}
-              addIngredient={addItem}
-              removeIngredient={removeItem}
-              cart={state.cart}
-            />
-          )}
+
           {currentSection === 'drinks' && (
-            <IngredientList
-              ingredients={state.drinks}
-              addIngredient={addItem}
-              removeIngredient={removeItem}
-              cart={state.cart}
+            <DrinkForm addDrink={addDrinkToCart} />
+          )}
+
+          {currentSection === 'extras' && (
+            <ExtraList extras={extraItems.extra_items} addExtra={addExtraToCart} />
+          )}
+
+          {currentSection === 'checkout' && (
+            <Cart 
+              cartItems={[...state.cart.burgers, ...state.cart.drinks, ...state.cart.extras]} 
+              removeFromCart={removeItem} 
             />
           )}
         </div>
-
-        <Cart cartItems={state.cart} removeFromCart={removeItem} />
       </div>
     </div>
   );

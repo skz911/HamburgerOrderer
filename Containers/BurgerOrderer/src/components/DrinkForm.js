@@ -1,48 +1,50 @@
-// src/components/DrinkForm.js
 import React, { useState } from 'react';
 
-const DrinkForm = ({ addDrink }) => {
-  const [flavour, setFlavour] = useState('');
-  const [size, setSize] = useState('');
+const DrinkForm = ({ drinks, addDrink }) => {
+  const [selectedDrink, setSelectedDrink] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const handleDrinkChange = (e) => {
+    const drink = drinks.find(d => d.id === parseInt(e.target.value));
+    setSelectedDrink(drink);
+    setSelectedSize(null); // Reset size selection when drink changes
+  };
+
+  const handleSizeChange = (e) => {
+    const size = selectedDrink.sizes.find(s => s.size === e.target.value);
+    setSelectedSize(size);
+  };
 
   const handleAddDrink = () => {
-    if (flavour && size) {
-      addDrink({ flavour, size });
-      setFlavour('');
-      setSize('');
+    if (selectedDrink && selectedSize) {
+      addDrink({ name: selectedDrink.name, size: selectedSize.size, price: selectedSize.price });
+      setSelectedDrink(null);
+      setSelectedSize(null);
     }
   };
 
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md">
-      <h3 className="text-lg font-bold">Choose a Drink</h3>
-      <div className="mb-4">
-        <label className="block text-gray-700">Flavour</label>
-        <input
-          type="text"
-          value={flavour}
-          onChange={(e) => setFlavour(e.target.value)}
-          className="border border-gray-300 p-2 rounded w-full"
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700">Size</label>
-        <select
-          value={size}
-          onChange={(e) => setSize(e.target.value)}
-          className="border border-gray-300 p-2 rounded w-full"
-        >
+    <div>
+      <h3>Select a Drink</h3>
+      <select onChange={handleDrinkChange} value={selectedDrink?.id || ''}>
+        <option value="">Select Drink</option>
+        {drinks.map(drink => (
+          <option key={drink.id} value={drink.id}>{drink.name}</option>
+        ))}
+      </select>
+
+      {selectedDrink && (
+        <select onChange={handleSizeChange} value={selectedSize?.size || ''}>
           <option value="">Select Size</option>
-          <option value="sm">Small</option>
-          <option value="md">Medium</option>
-          <option value="lg">Large</option>
+          {selectedDrink.sizes.map(size => (
+            <option key={size.size} value={size.size}>
+              {size.size} - {size.price}kr
+            </option>
+          ))}
         </select>
-      </div>
-      <button
-        onClick={handleAddDrink}
-        className="bg-green-500 text-white py-2 px-4 rounded"
-      >
-        Add Drink
+      )}
+
+      <button onClick={handleAddDrink} disabled={!selectedSize}>
+        Add Drink to Cart
       </button>
     </div>
   );

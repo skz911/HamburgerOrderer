@@ -9,7 +9,9 @@ import IngredientList from '../components/IngredientList';
 import Cart from '../components/Cart';
 import DrinkForm from '../components/DrinkForm';
 import ExtraList from '../components/ExtraList';
-
+import drinksData from '../data/drinksData';
+import burgerIngredients from '../data/burgerIngredients';
+import extraItems from '../data/extraItemData';
 /**
  * Initial state for the useReducer hook, representing the ingredients, drinks, extras, and cart items.
  * @type {Object}
@@ -21,143 +23,6 @@ const initialState = {
     extras: [],  // Array for extra items
   },
 };
-
-const burgerIngredients = {
-  hamburger_ingredients: [
-    {
-      id: 1,
-      name: "Lettuce",
-      type: "vegetable",
-      price: 5,
-      image: "/path-to-lettuce-image",
-    },
-    {
-      id: 2,
-      name: "Tomato",
-      type: "vegetable",
-      price: 7,
-      image: "/path-to-tomato-image",
-    },
-    {
-      id: 3,
-      name: "Cheese",
-      type: "dairy",
-      price: 10,
-      image: "/path-to-cheese-image",
-    },
-    {
-      id: 4,
-      name: "Beef Patty",
-      type: "meat",
-      price: 15,
-      image: "/path-to-beefpatty-image",
-    },
-    {
-      id: 5,
-      name: "Bacon",
-      type: "meat",
-      price: 12,
-      image: "/path-to-bacon-image",
-    },
-    {
-      id: 6,
-      name: "Onion",
-      type: "vegetable",
-      price: 4,
-      image: "/path-to-onion-image",
-    },
-    {
-      id: 7,
-      name: "Pickles",
-      type: "vegetable",
-      price: 3,
-      image: "/path-to-pickles-image",
-    },
-    {
-      id: 8,
-      name: "Ketchup",
-      type: "condiment",
-      price: 2,
-      image: "/path-to-ketchup-image",
-    },
-    {
-      id: 9,
-      name: "Mustard",
-      type: "condiment",
-      price: 2,
-      image: "/path-to-mustard-image",
-    },
-    {
-      id: 10,
-      name: "Mayonnaise",
-      type: "condiment",
-      price: 3,
-      image: "/path-to-mayonnaise-image",
-    },
-  ],
-};
-
-const extraItems = {
-  extra_items: [
-    {
-      id: 1,
-      name: "Fries",
-      type: "side",
-      price: 10,
-      image: "/path-to-fries-image",
-    },
-    {
-      id: 2,
-      name: "Onion Rings",
-      type: "side",
-      price: 12,
-      image: "/path-to-onion-rings-image",
-    },
-    {
-      id: 3,
-      name: "Mozzarella Sticks",
-      type: "side",
-      price: 15,
-      image: "/path-to-mozzarella-sticks-image",
-    },
-    {
-      id: 4,
-      name: "BBQ Sauce",
-      type: "sauce",
-      price: 3,
-      image: "/path-to-bbq-sauce-image",
-    },
-    {
-      id: 5,
-      name: "Ketchup",
-      type: "sauce",
-      price: 2,
-      image: "/path-to-ketchup-image",
-    },
-    {
-      id: 6,
-      name: "Mayonnaise",
-      type: "sauce",
-      price: 3,
-      image: "/path-to-mayonnaise-image",
-    },
-    {
-      id: 7,
-      name: "Garlic Dip",
-      type: "sauce",
-      price: 4,
-      image: "/path-to-garlic-dip-image",
-    },
-    {
-      id: 8,
-      name: "Cheese Dip",
-      type: "sauce",
-      price: 5,
-      image: "/path-to-cheese-dip-image",
-    },
-  ],
-};
-
 
 /**
  * Reducer function to manage the state for ingredients, drinks, extras, and cart items.
@@ -299,7 +164,7 @@ const OrderPage = () => {
 
 
           {currentSection === 'drinks' && (
-            <DrinkForm addDrink={addDrinkToCart} />
+            <DrinkForm drinks={drinksData[0].drinks} addDrink={addDrinkToCart} />
           )}
 
           {currentSection === 'extras' && (

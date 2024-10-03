@@ -19,6 +19,38 @@ const Cart = ({ cart, removeFromCart }) => {
     return <p>No items in the cart</p>;
   }
 
+  // Function to calculate total price for a single burger
+  const calculateBurgerCost = (burger) => {
+    return burger.reduce((total, ingredient) => {
+      return total + ingredient.price * ingredient.quantity;
+    }, 0);
+  };
+
+   // Function to calculate total price for extras
+   const calculateExtrasCost = () => {
+    return cart.extras.reduce((total, extra) => {
+      return total + extra.price * (extra.quantity || 1);  // assuming quantity defaults to 1 if not present
+    }, 0);
+  };
+
+  // Function to calculate total price for drinks
+  const calculateDrinksCost = () => {
+    return cart.drinks.reduce((total, drink) => {
+      return total + drink.price * (drink.quantity || 1);  // assuming quantity defaults to 1 if not present
+    }, 0);
+  };
+
+  // Function to calculate total cost of the entire order
+  const calculateTotalOrderCost = () => {
+    const burgersCost = cart.burgers.reduce((total, burger) => total + calculateBurgerCost(burger), 0);
+    const extrasCost = calculateExtrasCost();
+    const drinksCost = calculateDrinksCost();
+    return burgersCost + extrasCost + drinksCost;
+  };
+
+
+
+
   return (
     <div className="p-4 bg-white rounded-lg shadow-md">
       <h2 className="text-xl font-bold mb-4">Your Cart</h2>
@@ -32,10 +64,12 @@ const Cart = ({ cart, removeFromCart }) => {
               <ul className="ml-4">
                 {burger.map((ingredient, idx) => (
                   <li key={idx}>
-                    {ingredient.name} - {ingredient.quantity}
+                    {ingredient.name} - {ingredient.quantity} x {ingredient.price}kr  
                   </li>
                 ))}
               </ul>
+              <p>Total cost for this burger: {calculateBurgerCost(burger)}kr</p>
+
               <button onClick={() => removeFromCart(burger, 'burgers')}>Remove</button>
             </div>
           ))}
@@ -61,12 +95,13 @@ const Cart = ({ cart, removeFromCart }) => {
           <h3 className="text-lg font-semibold">Drinks</h3>
           {cart.drinks.map((drink, index) => (
             <div key={index} className="mb-2">
-              <p>{drink.flavour} ({drink.size})</p>
+              <p>{drink.name} ({drink.size}) {drink.price}kr </p>
               <button onClick={() => removeFromCart(drink, 'drinks')}>Remove</button>
             </div>
           ))}
         </>
       )}
+       <h3 className="mt-4 font-bold">Total Order Cost: {calculateTotalOrderCost()}kr</h3>
     </div>
   );
 };

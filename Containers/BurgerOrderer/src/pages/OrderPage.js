@@ -229,13 +229,39 @@ const OrderPage = () => {
   const [currentSection, setCurrentSection] = useState('hamburger');
 
   const addIngredientToBurger = (ingredient) => {
-    setCurrentBurger([...currentBurger, ingredient]);
+    const existingIngredient = currentBurger.find(item => item.id === ingredient.id);
+  
+    if (existingIngredient) {
+      setCurrentBurger(currentBurger.map(item =>
+        item.id === ingredient.id ? { ...item, quantity: item.quantity + 1 } : item
+      ));
+    } else {
+      setCurrentBurger([...currentBurger, { ...ingredient, quantity: 1 }]);
+    }
+  };
+
+  const removeIngredientFromBurger = (ingredient) => {
+    const existingIngredient = currentBurger.find(item => item.id === ingredient.id);
+  
+    if (existingIngredient && existingIngredient.quantity > 1) {
+      setCurrentBurger(currentBurger.map(item =>
+        item.id === ingredient.id ? { ...item, quantity: item.quantity - 1 } : item
+      ));
+    } else {
+      setCurrentBurger(currentBurger.filter(item => item.id !== ingredient.id));
+    }
   };
 
   const addBurgerToCart = () => {
-    dispatch({ type: 'ADD_BURGER', payload: currentBurger });
-    setCurrentBurger([]);
+    if (currentBurger.length > 0) {
+      setCurrentBurger((prevBurger) => {
+        dispatch({ type: 'ADD_BURGER', payload: prevBurger });
+        console.log(state.cart);
+        return []; 
+      });
+    }
   };
+  
 
   const addDrinkToCart = (drink) => {
     dispatch({ type: 'ADD_DRINK', payload: drink });
@@ -253,21 +279,24 @@ const OrderPage = () => {
 
   return (
     <div className="relative min-h-screen bg-gray-50">
-      <OrderNav setCurrentSection={setCurrentSection} /> {/* Pass setCurrentSection to OrderNav */}
+      <OrderNav setCurrentSection={setCurrentSection} /> 
 
-      <div className="container mx-auto py-8 flex justify-between space-x-10">
-        <div className="w-2/3">
-          {/* Conditionally render based on currentSection */}
-          {currentSection === 'hamburger' && (
-            <>
-              <IngredientList
-                ingredients={burgerIngredients}
-                addIngredient={addIngredientToBurger}
-                cart={state.cart.burgers}
-              />
-              <button onClick={addBurgerToCart}>Add Burger to Cart</button>
-            </>
-          )}
+      <div className="container py-8 flex justify-center space-x-10 w-full">
+        <div className="w-2/3 flex">
+        {currentSection === 'hamburger' && (
+        <>
+          <IngredientList
+            ingredients={burgerIngredients.hamburger_ingredients}
+            addIngredient={addIngredientToBurger}       
+            removeIngredient={removeIngredientFromBurger}  
+            cart={currentBurger}  
+          />
+          <button onClick={addBurgerToCart} className="bg-blue-500 text-white py-2 px-4 rounded mt-4">
+            Add Burger to Cart
+          </button>
+        </>
+      )}
+
 
           {currentSection === 'drinks' && (
             <DrinkForm addDrink={addDrinkToCart} />
@@ -277,12 +306,13 @@ const OrderPage = () => {
             <ExtraList extras={extraItems.extra_items} addExtra={addExtraToCart} />
           )}
 
-          {currentSection === 'checkout' && (
+           {currentSection === 'checkout' && (
             <Cart 
-              cartItems={[...state.cart.burgers, ...state.cart.drinks, ...state.cart.extras]} 
+              cart={state.cart} 
               removeFromCart={removeItem} 
             />
           )}
+          
         </div>
       </div>
     </div>

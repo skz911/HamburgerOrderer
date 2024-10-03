@@ -20,19 +20,9 @@ import React from 'react';
  */
 
 const IngredientItem = ({ name, price, image, addIngredient, removeIngredient, cart }) => {
-
+  // Look for the ingredient in the current burger (cart)
   const itemInCart = cart.find(item => item.name === name);
   const quantity = itemInCart ? itemInCart.quantity : 0;
-
-  const increaseQuantity = () => {
-    addIngredient(); 
-  };
-
-  const decreaseQuantity = () => {
-    if (quantity > 0) {
-      removeIngredient(); 
-    }
-  };
 
   return (
     <div className="flex items-center justify-between py-2">
@@ -44,9 +34,9 @@ const IngredientItem = ({ name, price, image, addIngredient, removeIngredient, c
         </div>
       </div>
       <div className="flex items-center space-x-2">
-        <button onClick={decreaseQuantity} className="text-red-500 text-xl">-</button>
+        <button onClick={removeIngredient} className="text-red-500 text-xl">-</button>
         <span>{quantity}</span>
-        <button onClick={increaseQuantity} className="text-green-500 text-xl">+</button>
+        <button onClick={addIngredient} className="text-green-500 text-xl">+</button>
       </div>
     </div>
   );

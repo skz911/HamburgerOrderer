@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Web Project</title>
+    <title>Order List</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello, Docker!</h1>
-    <script src="app.js"></script>
+    <h1>Order List</h1>
+    <div id="order-container"></div> <!-- This container must exist -->
+    
+    <script src="app.js" defer></script> <!-- Use defer to ensure the script runs after the DOM is loaded -->
 </body>
 </html>

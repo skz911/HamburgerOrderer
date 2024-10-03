@@ -1,0 +1,87 @@
+{
+    "orders": [
+      {
+        "orderId": 1,
+        "hamburger": {
+          "lettuce": 2,
+          "meat": 3,
+          "bacon": 10,
+          "tomato": 1,
+          "cheese": 2
+        },
+        "extra": {
+          "fries": 2,
+          "sauce": [
+            {
+              "flavour": "bbq"
+            },
+            {
+              "flavour": "mayo"
+            }
+          ],
+          "drinks": [
+            {
+              "flavour": "cola",
+              "size": "lg"
+            },
+            {
+              "flavour": "fanta",
+              "size": "sm"
+            }
+          ]
+        },
+        "status": "preparing"
+      },
+      {
+        "orderId": 2,
+        "hamburger": {
+          "lettuce": 1,
+          "meat": 2,
+          "bacon": 1,
+          "onions": 3,
+          "cheese": 1
+        },
+        "extra": {
+          "fries": 1,
+          "sauce": [
+            {
+              "flavour": "ketchup"
+            }
+          ],
+          "drinks": [
+            {
+              "flavour": "sprite",
+              "size": "lg"
+            }
+          ]
+        },
+        "status": "preparing"
+      },
+      {
+        "orderId": 3,
+        "hamburger": {
+          "lettuce": 1,
+          "meat": 1,
+          "bacon": 2,
+          "pickles": 2,
+          "tomato": 1
+        },
+        "extra": {
+          "fries": 3,
+          "sauce": [
+            {
+              "flavour": "ranch"
+            }
+          ],
+          "drinks": [
+            {
+              "flavour": "cola",
+              "size": "sm"
+            }
+          ]
+        },
+        "status": "preparing"
+      }
+    ]
+  }
+  

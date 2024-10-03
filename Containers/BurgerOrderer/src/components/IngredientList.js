@@ -40,4 +40,5 @@ const IngredientList = ({ ingredients, addIngredient, removeIngredient, cart }) 
   );
 };
 
+
 export default IngredientList;

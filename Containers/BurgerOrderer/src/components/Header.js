@@ -40,7 +40,7 @@ const Header = () => {
   };
 
   return (
-    <header className="shadow-lg px-6 py-4">
+    <header className="shadow-lg px-20 py-4">
       <div className="container mx-auto flex justify-between items-center">
         
       <nav className="hidden lg:flex space-x-10 font-roboto font-bold">

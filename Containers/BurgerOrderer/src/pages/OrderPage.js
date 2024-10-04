@@ -18,9 +18,9 @@ import extraItems from '../data/extraItemData';
  */
 const initialState = {
   cart: {
-    burgers: [], // Array for burger orders
-    drinks: [],  // Array for drinks
-    extras: [],  // Array for extra items
+    burgers: [], 
+    drinks: [],  
+    extras: [],  
   },
 };
 
@@ -29,8 +29,8 @@ const initialState = {
  * 
  * @function reducer
  * @memberof module:OrderPage
- * @param {Object} state - The current state of the order.
- * @param {Object} action - The action to perform.
+ * @param {Object} state 
+ * @param {Object} action 
  * @returns {Object} - The updated state.
  */
 const reducer = (state, action) => {
@@ -85,7 +85,7 @@ const reducer = (state, action) => {
  * @component
  * @exports OrderPage
  * @memberof module:OrderPage
- * @returns {JSX.Element} The rendered order page with navigation, ingredient list, and cart.
+ * @returns {JSX.Element} 
  */
 
 const OrderPage = () => {
@@ -146,8 +146,8 @@ const OrderPage = () => {
     <div className="relative min-h-screen bg-gray-50">
       <OrderNav setCurrentSection={setCurrentSection} /> 
 
-      <div className="container py-8 flex justify-center space-x-10 w-full">
-        <div className="w-2/3 flex">
+      <div className="container py-8 flex justify-center space-x-10 my-16 w-full">
+        <div className="w-2/3 flex space-x-10">
         {currentSection === 'hamburger' && (
         <>
           <IngredientList
@@ -156,7 +156,7 @@ const OrderPage = () => {
             removeIngredient={removeIngredientFromBurger}  
             cart={currentBurger}  
           />
-          <button onClick={addBurgerToCart} className="bg-blue-500 text-white py-2 px-4 rounded mt-4">
+          <button onClick={addBurgerToCart} className="bg-green-500 shadow-2xl text-white py-2 px-4 rounded hover:bg-green-600 transition-transform active:scale-[1.01] ">
             Add Burger to Cart
           </button>
         </>

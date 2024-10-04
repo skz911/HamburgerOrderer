@@ -23,9 +23,9 @@ const DrinkForm = ({ drinks, addDrink }) => {
   };
 
   return (
-    <div>
-      <h3>Select a Drink</h3>
-      <select onChange={handleDrinkChange} value={selectedDrink?.id || ''}>
+    <div className='w-full p-10 bg-white rounded-lg shadow-md font-roboto space-y-4'>
+      <h3 className="text-lg font-bold mb-4">Choose Your Drinks</h3>
+      <select onChange={handleDrinkChange} value={selectedDrink?.id || ''} className='class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"'>
         <option value="">Select Drink</option>
         {drinks.map(drink => (
           <option key={drink.id} value={drink.id}>{drink.name}</option>
@@ -33,7 +33,7 @@ const DrinkForm = ({ drinks, addDrink }) => {
       </select>
 
       {selectedDrink && (
-        <select onChange={handleSizeChange} value={selectedSize?.size || ''}>
+        <select onChange={handleSizeChange} value={selectedSize?.size || ''} className='class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"'>
           <option value="">Select Size</option>
           {selectedDrink.sizes.map(size => (
             <option key={size.size} value={size.size}>
@@ -43,7 +43,7 @@ const DrinkForm = ({ drinks, addDrink }) => {
         </select>
       )}
 
-      <button onClick={handleAddDrink} disabled={!selectedSize}>
+      <button onClick={handleAddDrink} disabled={!selectedSize} className='bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600' >
         Add Drink to Cart
       </button>
     </div>

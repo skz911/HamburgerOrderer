@@ -16,7 +16,11 @@ import React from 'react';
 
 const Cart = ({ cart, removeFromCart }) => {
   if (!cart || (!cart.burgers.length && !cart.extras.length && !cart.drinks.length)) {
-    return <p>No items in the cart</p>;
+    return <div className='p-4 bg-white rounded-lg shadow-md w-full'>
+      <p>
+      No items in the cart
+      </p>
+      </div>;
   }
 
   // Function to calculate total price for a single burger
@@ -52,7 +56,7 @@ const Cart = ({ cart, removeFromCart }) => {
 
 
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md">
+    <div className="p-10 bg-white rounded-lg shadow-md w-full flex flex-col">
       <h2 className="text-xl font-bold mb-4">Your Cart</h2>
       
       {cart.burgers.length > 0 && (

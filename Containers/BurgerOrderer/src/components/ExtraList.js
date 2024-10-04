@@ -3,7 +3,7 @@ import React from 'react';
 
 const ExtraList = ({ extras, addExtra }) => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md">
+    <div className="p-10 h-full w-full bg-white rounded-lg shadow-md transition-transform">
       <h3 className="text-lg font-bold mb-4">Choose Extras</h3>
       <ul>
         {extras.map((extra, index) => (
@@ -32,7 +32,7 @@ const ExtraList = ({ extras, addExtra }) => {
             {!extra.options && (
               <button
                 onClick={() => addExtra({ name: extra.name })}
-                className="bg-green-500 text-white py-1 px-4 rounded"
+                className="bg-green-500 text-white py-1 px-4 rounded hover:bg-green-600"
               >
                 Add
               </button>

@@ -20,7 +20,8 @@ import IngredientItem from './IngredientItem';
 
 const IngredientList = ({ ingredients, addIngredient, removeIngredient, cart }) => {
   return (
-    <div className="w-full px-12 bg-white rounded-lg shadow-md font-roboto">
+    <div className="w-full px-10 pt-10 bg-white rounded-lg shadow-md font-roboto">
+      <h3 className="text-lg font-bold mb-4">Build your Burger</h3>
       {ingredients.length > 0 ? (
         ingredients.map((ingredient) => (
           <IngredientItem

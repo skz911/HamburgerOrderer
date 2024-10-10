@@ -1,8 +1,3 @@
-/**
- * @module OrderPage
- *
- */
-
 import React, { useReducer, useState, useEffect } from "react";
 import OrderNav from "../components/OrderNav";
 import IngredientList from "../components/IngredientList";
@@ -12,10 +7,7 @@ import ExtraList from "../components/ExtraList";
 import drinksData from "../data/drinksData";
 import burgerIngredients from "../data/burgerIngredients";
 import extraItems from "../data/extraItemData";
-/**
- * Initial state for the useReducer hook, representing the ingredients, drinks, extras, and cart items.
- * @type {Object}
- */
+
 const initialState = {
   cart: {
     burgers: [],
@@ -24,15 +16,6 @@ const initialState = {
   },
 };
 
-/**
- * Reducer function to manage the state for ingredients, drinks, extras, and cart items.
- *
- * @function reducer
- * @memberof module:OrderPage
- * @param {Object} state
- * @param {Object} action
- * @returns {Object} - The updated state.
- */
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_BURGER":
@@ -53,14 +36,30 @@ const reducer = (state, action) => {
         },
       };
 
-    case "ADD_EXTRA":
-      return {
-        ...state,
-        cart: {
-          ...state.cart,
-          extras: [...state.cart.extras, action.payload],
-        },
-      };
+      case "ADD_EXTRA": {
+        const existingExtra = state.cart.extras.find((item) => item.id === action.payload.id);
+        if (existingExtra) {
+          return {
+            ...state,
+            cart: {
+              ...state.cart,
+              extras: state.cart.extras.map((item) =>
+                item.id === action.payload.id
+                  ? { ...item, quantity: item.quantity + 1 }
+                  : item
+              ),
+            },
+          };
+        } else {
+          return {
+            ...state,
+            cart: {
+              ...state.cart,
+              extras: [...state.cart.extras, { ...action.payload, quantity: 1 }],
+            },
+          };
+        }
+      }
 
     case "REMOVE_ITEM": {
       const { item, type } = action.payload;
@@ -73,25 +72,56 @@ const reducer = (state, action) => {
       };
     }
 
+    case "REMOVE_ONE_EXTRA": {
+      const existingExtra = state.cart.extras.find((item) => item.id === action.payload.id);
+      if (existingExtra && existingExtra.quantity > 1) {
+        return {
+          ...state,
+          cart: {
+            ...state.cart,
+            extras: state.cart.extras.map((item) =>
+              item.id === action.payload.id
+                ? { ...item, quantity: item.quantity - 1 }
+                : item
+            ),
+          },
+        };
+      } else {
+        return {
+          ...state,
+          cart: {
+            ...state.cart,
+            extras: state.cart.extras.filter((item) => item.id !== action.payload.id),
+          },
+        };
+      }
+    }
+
+    case "RESET_CART":
+      localStorage.removeItem('cart');
+      return {
+        ...state,
+        cart: {
+          burgers: [],
+          drinks: [],
+          extras: [],
+        },
+      };
+
     default:
       return state;
   }
 };
 
-/**
- * OrderPage component allows users to add ingredients, drinks, and extras to their order.
- * It manages the state of available items and the user's cart using the useReducer hook.
- *
- * @component
- * @exports OrderPage
- * @memberof module:OrderPage
- * @returns {JSX.Element}
- */
-
 const OrderPage = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const savedCart = JSON.parse(localStorage.getItem('cart'));
+  const [state, dispatch] = useReducer(reducer, savedCart ? { cart: savedCart } : initialState);
   const [currentBurger, setCurrentBurger] = useState([]);
   const [currentSection, setCurrentSection] = useState("hamburger");
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(state.cart));
+  }, [state.cart]);
 
   const addIngredientToBurger = (ingredient) => {
     const existingIngredient = currentBurger.find(
@@ -152,6 +182,9 @@ const OrderPage = () => {
     dispatch({ type: "REMOVE_ITEM", payload: { item, type } });
   };
 
+  const removeOneExtra = (extra) => {
+    dispatch({ type: "REMOVE_ONE_EXTRA", payload: extra });
+  };
   return (
     <div className="relative min-h-screen bg-gray-100">
       <OrderNav setCurrentSection={setCurrentSection} />
@@ -235,7 +268,8 @@ const OrderPage = () => {
               >
                 {"<"}
               </button>
-              <Cart cart={state.cart} removeFromCart={removeItem} />
+              <Cart cart={state.cart} removeFromCart={removeItem} removeOneExtra={removeOneExtra} setCart={(newCart) => dispatch({ type: "RESET_CART", payload: newCart })} />
+
               <div className="h-full w-6">
               </div>
             </>

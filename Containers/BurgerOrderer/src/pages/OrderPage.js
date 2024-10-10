@@ -16,6 +16,16 @@ const initialState = {
   },
 };
 
+/**
+ * Reducer function to manage the state for ingredients, drinks, extras, and cart items.
+ *
+ * @function reducer
+ * @memberof module:OrderPage
+ * @param {Object} state
+ * @param {Object} action
+ * @returns {Object} - The updated state.
+ */
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_BURGER":
@@ -112,6 +122,17 @@ const reducer = (state, action) => {
       return state;
   }
 };
+
+/**
+ * OrderPage component allows users to add ingredients, drinks, and extras to their order.
+ * It manages the state of available items and the user's cart using the useReducer hook.
+ *
+ * @component
+ * @exports OrderPage
+ * @memberof module:OrderPage
+ * @returns {JSX.Element}
+ */
+
 
 const OrderPage = () => {
   const savedCart = JSON.parse(localStorage.getItem('cart'));

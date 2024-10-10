@@ -146,3 +146,17 @@ the thing on tomorrows agenda is fixing the css so that it looks better. Then i 
 
 Today i used: I used Git Fetch Git Pull Git Push Git Merge Git Branch Git Checkout
 
+
+day 11 10/10/24 --------------------------------------------------------------------------------------------------------------------------------------------
+
+Today i have fixed some bugs in my code, they were located in my cart component, the extra items werent handled correctly.
+It is now fixed.
+
+I also added a checkout button which sends the order to the server, the server does not yet have the functionallity to add an order to the database yet.
+
+the next step is to add some tests to the code. Im going to try and see if there already is a react testing library i can use for this purpose.
+
+Otherwise the day want good, i didnt really have any problems.
+
+I used Git Merge, Git Checkout, Git Add, Git Commit, Git Push
+

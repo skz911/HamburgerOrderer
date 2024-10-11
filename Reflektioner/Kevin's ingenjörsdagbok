@@ -39,3 +39,21 @@ abit on google and tried clearing the cache of all the dockers and redownloading
 project and I continue developing on that part (branch) by myself and do all the coding and testing there and then if it is good, I will push it into the main project. I also had to merge the project. But overall
 a good day and tomorrow I plan on adding the actual database and structuring it will tables etc + I will try to get the get/post requests working and try to see if the server endpoints work :)
 
+Day #6 and #7 (2024-10-02 and 2024-10-03) Today I added the actual database and all tables. However, I came into the problem where the database was only local and I did not know how to proceed where I could upload the database scheme to
+the github. But after some research I stumbled upon "Database seeding" which was the solution so I dumped the current database I had and made a seed and uploaded to the github. I ran into some problems where I couldnt
+start the server.js file since in the dockerfile we was redirecting the wrong directory where the server.js file was located, which took me a while to figure out but after a while it clocked in my head while reading
+the error message. I also used a new tool for me which was postman. Postman is a tool where you can send endpoint api requests to the server with your own customized payload. I used this to test so the order api
+was functional and the port etc was all working and information could be sent there. I also ran into the problem where the seed file could not start but it didnt take long until I found the solution which was
+that I needed to have UTF8 coding on the seed file, which I could easily change in my visual studioc code.
+Today I used GIT Commit and branches and fetch and pull
+
+Day #8 (2024-10-10) I unfortunately got very sick for a full week and could not move from my bed so I did some research amongst the days I was sick about javascript in general and mysql databases and how to query etc...
+But this specific day I removed the date variable from the database seed and uploaded the new dump. I also started working quite a bit with the order api post request to handle all the data that gets sent from the 
+front end and came a decent bit today but unfortunately wont have time to finish + I will have to talk with the rest of the group how the data payload will look like from their frontend so I can know how to handle the
+data correctly. But I learned alot today about database and I took some help via chatgpt to educate me about some examples and how to query correctly and few tips. I ran into one problem today where most of my time
+was spent trying to solve (it took around 1-2 hours to solve woho!) well, the problem was that I just could not connect to the database and I kept seeing in docker that it just refused to connect and I had no idea
+why it wouldnt work since it did work last time I worked on it. However, after 1 hour or so I chose to restart only the backend container and realised it connected perfectly fine. So the problem was that the backend is
+trying to establish a connection to the database when the database container is not even initalized yet so it outputs an error. So for next time I will fix so the backend waits until the database is up and initialized
+before trying to establish a connection when the database is closed!! :D I will also try to book a meeting with the group so we can get over with how we want to send/receive data via the api requests so we are on the
+same page :)
+Today I used git commit, git pull, git fetch

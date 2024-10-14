@@ -62,6 +62,8 @@ const Cart = ({ cart, removeFromCart,removeOneExtra, setCart }) => {
       totalCost: calculateTotalOrderCost(),
     };
 
+    console.log('Order data:', orderData);
+
     try {
       const response = await fetch('http://localhost:5000/api/order', {
         method: 'POST',

@@ -26,7 +26,9 @@ services:
     environment:
       - DATABASE_URL=mysql://user:BTHDonken@mysql:3306/burger_db
     depends_on:
-      - mysql
+      mysql:
+        condition: service_healthy
+    restart: always 
 
   mysql:
     image: mysql:8.0
@@ -40,6 +42,11 @@ services:
     volumes:
       - mysql-data:/var/lib/mysql
       - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   mysql-data:

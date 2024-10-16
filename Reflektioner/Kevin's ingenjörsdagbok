@@ -57,3 +57,20 @@ trying to establish a connection to the database when the database container is 
 before trying to establish a connection when the database is closed!! :D I will also try to book a meeting with the group so we can get over with how we want to send/receive data via the api requests so we are on the
 same page :)
 Today I used git commit, git pull, git fetch
+
+Day #9 (2024-10-14) Today I worked together with Linus to get the backend fully done. We sat with the project in discord together and collaborated our minds together since he was the one that created the frontend for
+burgerorderer page, so we had to collaborate to know what JSON Object he is sending to my backend so I can take this information and work with it in the correct ways. This was a very successfull day and we sat for
+multiple hours to get this working and in the end it turned out great. However, we ran into some problems during the worktime. First of all we remade the old database system abit so we also have a table that can hold
+the "burger ingredients" and store the burger. So we had to make a new database seed with the remade database aswell. We also had this problem last time where the backend tried connecting to the database before it
+was up and running in the container, but it was solved by adding an automatic retry in the .yml file where it always retries to connect to the database, what we added was a "health-care". During the coding of the 
+backend endpoints we used some help from chatgpt, mainly for some syntax and explaining of code. However, since the system is so "advanced" and the AI would require alot of information to help us it was quite 
+difficult to get a very helpful response sometimes, where we had to look otherwise on google & try + test and implement ideas of our own. But in the end we manage to puzzle the endpoints together so they work.
+We also did our first testing of the frontend + backend together and it worked out great and we managed to successfully do a "full" run of the project, where we send choose items in the frontend to order, post
+request these items in a json object to the backend, unload these items into the database, and then send a get request to the backend to retrieve the all the orders and see the order we just placed in the database.
+I learned a good amount of javascript today aswell. Now we basically only have the frontend (kitchenview) part of the project left. Upon reflecting back on the project I personally think it would be easier
+to work with the database a different way and not use our system we have today, where you can choose your own ingredients on the burger and build your own burger. On one side, this was better in terms of
+knowledge and personal development within software engineering, but I think we overdid ourselves with the complexitiy. I do not regret doing it this way, but maybe an EASIER way would have been just having
+plain menus and a database that might not be as good normalized as it is today, but it would have been easier to grasp the idea if we started with that and THEN moved on to the more difficult way of doing things.
+However, the easier path is now always the best path and therefore I do not regret making it this way, and it is more of an achievement having it like this, and the satisfaction when we got the problems working felt
+extra good since we made it the more difficult way. 
+Today I used git merge, git pull, fetch, git add, git commit, git branch

@@ -213,6 +213,8 @@ CREATE TABLE `Orders` (
 INSERT INTO `Orders` VALUES (1,568.00),(2,568.00),(3,568.00),(4,568.00),(5,568.00),(6,568.00),(7,568.00);
 /*!40000 ALTER TABLE `Orders` ENABLE KEYS */;
 
+GRANT ALL PRIVILEGES ON burger_db.* TO 'user'@'localhost' IDENTIFIED BY 'BTHDonken';
+FLUSH PRIVILEGES;
 --
 -- Dumping routines for database 'burger_db'
 --

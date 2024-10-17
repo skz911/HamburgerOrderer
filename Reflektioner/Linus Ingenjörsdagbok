@@ -161,7 +161,17 @@ Otherwise the day want good, i didnt really have any problems.
 I used Git Merge, Git Checkout, Git Add, Git Commit, Git Push
 
 
-day 12 17/10/24
+day 12 14/10/24
+
+Today i didnt do much coding on my own device, i sat and collaboratively programmed with kevin in discord. We had to fix the server and its endpoints for our client and kitchen views.
+kevin had setup the database wrong from the beginning so we had to look over it so that we can store everything properly and have the relationships of the tables correct.
+
+we also had a problem with docker where the backend was served before the database was done loading so the server couldnt connect, we did this by adding a "health check" to the server where it waited until the database was setup and ready.
+
+
+
+
+day 13 17/10/24
 
 Today we have spent alot of time on fixing the small issues left in the project. we finished our conclusion pages and reflected on how we did on the project.
 

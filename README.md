@@ -22,7 +22,15 @@ cd .\Containers\BurgerOrderer\
 npm install  
 npm run doc  
 
-### finding the docs
+## generate the docs for backend
+
+The backend is using swagger, so it will automatically generate a docs webpage when you run the containers
+
+## finding the docs for backend
+
+There will be a page at (http://localhost:8000/api-docs/) where you can view the documentation for the backend
+
+### finding the docs for frontend
 
 a directory will be generated in the directory called /docs. you can then open docs/index.html to view the documentation
 

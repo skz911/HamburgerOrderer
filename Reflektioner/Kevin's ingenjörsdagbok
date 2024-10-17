@@ -74,3 +74,18 @@ plain menus and a database that might not be as good normalized as it is today, 
 However, the easier path is now always the best path and therefore I do not regret making it this way, and it is more of an achievement having it like this, and the satisfaction when we got the problems working felt
 extra good since we made it the more difficult way. 
 Today I used git merge, git pull, fetch, git add, git commit, git branch
+
+Day #10 (2024-10-17) Today I was at campus working with the group for around 3-4 hours with the project. I felt like we really did accomplish alot and put a closure to the project. When we sat there and read through the 
+tasks for this project we saw that we were missing a way to have the items update dynamically via getting the items from the database, whereas they were static right now. So I created a new endpoint in the backend
+which would get all the items in the database and just return it. After reading all requirements I feel like we passed everything. We also did unit testing on the project and it went well and it was the first time
+I ever heard or tried something like unit testing and it was cool and I can see how it can be useful in projects. We also made sure to do all the group conclusion files and come together and give our opinions on
+the project, what has been good, and what has been worse. So we worked with those files for a while aswell. Later on I went home and I did the debugger testing and also did the documentation for the backend, and since
+Linus was doing it with JSDocs I thought it would be a good idea to use that aswell but here was the problem. Since the backend is using express endpoints it is not REALLY a function so JSDOCS had a hard time to generate
+a code for these "functions" since there was not really a function. So I looked around otherwhere and found this thing called "Swagger". I looked at a youtube video how to set it up and it looked really good, and I am
+actually happy that jsdocs did not work since I got to experience swagger, I just think the page looks cool and I really like how you can test your endpoints in the webpage and see the returns. Very useful for endpoint
+documentation! 
+Today I used git merge, git pull, fetch, git add, git commit, git branch
+
+
+
+

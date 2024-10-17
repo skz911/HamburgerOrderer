@@ -86,6 +86,27 @@ actually happy that jsdocs did not work since I got to experience swagger, I jus
 documentation! 
 Today I used git merge, git pull, fetch, git add, git commit, git branch
 
+DEBUG SESSION:
+
+I chose to debug my own get endpoints that is /api/getItems. I set my first breakpoint at the first line in the app.get so that would be the query. The file is server.js where the backend api endpoints are defined.
+I tried experimenting using all the different buttons like continue, step over,step into and step out.
+Continue would make the program continue executing the function until next breakpoint is reached
+Step over is when I want to execute something but without diving into it, for example if I wanted to skip over the query I would not really see how the function works, instead it would go to the next line
+Step into is used when I want to step into the function and see how it works and where the data is going and how it is getting processed within that function
+Step out is used when I am inside a function, and it will run until the function returns
+I was monitoring the variable results since that seemed like the one where all the data would be loaded into from the database and the most interesting to monitor. I can inspect the variable result in the debugger sidebar
+and see its value in the variables panel, its very cool to see how the value changes alongside the debug session. I can see how the variable contents change by monitor the value each step of the code in the debugger. 
+And in the end the variable was holding the items from the database. I tried some different things with the debugger but I am not that experienced yet so I did not really know what else to change since it is a 
+get request immonitoring that is taking information from the database, so I dont really know what I could have changed, possibly changed the contents in the database and see a different return. After my debug session
+I went to research abit more about debugging and found out that I can hover over the variable in visual studio code to see the actual value of the variable in realtime, which is cool if that works but I havent tested
+that yet but I will for sure test that next time im debugging!
+
+In conclusion, Debugging session went well and it was abit complicated to get it running with the dockers but the actual debug session was very fun and made me realize it is a very powerful tool. I have always
+debugged my code by using console logs or just trying different things to see where the problem occurs but in bigger problems I can really see debugging being useful to see where the problem ACTUAL is, whereas
+debugging by console logs is also good, but not as insightful where the problem actually is. I feel like debugging will be a useful tool for me, since I have sometimes put like 10 console logs in my code and in every
+if statement / scope of the code to see if the code passes this if statement or if it continues, if it returns etc, and doing it that way is very messy where the debug is just easier to actually inspect what is
+happening with the code. I have always thought debugging looked difficult and therefore never tried it out, while people told me - "just open it in the debugger and find the issue" I kept using console logs. But I can
+now definitely see myself using the debugger in the future.
 
 
 

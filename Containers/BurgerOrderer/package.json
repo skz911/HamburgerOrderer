@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "webpack serve --open --mode development",
-    "build": "webpack serve --open --mode production",
+    "build": "webpack --mode production",
     "doc": "jsdoc -c jsdoc.json",
     "test": "jest"
   },

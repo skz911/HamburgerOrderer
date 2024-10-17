@@ -9,8 +9,18 @@ Link to the project repository: https://github.com/skz911/HamburgerOrderer/
 
 ## what we tested
 
+### why?
 We chose to test a function in the client application handling the cart functions, specifically the adding to the cart.
 We did this because the function is important for the project to work.
+
+### how often?
+
+This test is made to be done before any commit in the client-page to check if the current branch is working as it should.
+
+### if it doesnt work?
+
+If the tests come back unsuccessful we know that something in the project doesnt work. This is great since we can pause the commit and not push it up to the repo before it is fixed.
+
 
 ## how we tested
 

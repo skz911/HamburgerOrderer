@@ -66,6 +66,9 @@ module.exports = (env, argv) => {
     },
     resolve: {
       extensions: ['.js', '.jsx'],
+      alias: {
+        'react-dom$': 'react-dom/profiling',
+      }
     },
     devServer: {
       static: [{

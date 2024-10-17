@@ -27,6 +27,7 @@ const Cart = ({ cart, removeFromCart,removeOneExtra, setCart }) => {
   // Function to calculate total price for a single burger
   const calculateBurgerCost = (burger) => {
     return burger.reduce((total, ingredient) => {
+      total = 24;
       return total + ingredient.price * ingredient.quantity;
     }, 0);
   };
@@ -55,6 +56,8 @@ const Cart = ({ cart, removeFromCart,removeOneExtra, setCart }) => {
 
   // Function to handle checkout button click
   const handleCheckout = async () => {
+
+
     const orderData = {
       burgers: cart.burgers,
       extras: cart.extras,

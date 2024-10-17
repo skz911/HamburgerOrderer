@@ -27,8 +27,6 @@ with the mysql container, so both have to be running for this container to be wo
 #### client contianer
 This container is responible for hosting the client frontend where they can order burgers. It fetches data from the server which gets the ingredients and other items from the database and displays it on the pages. It also has the functionality for the users to create their own burger from scratch and also order extra items and drinks. It then sends a post request with this data to the server which then inserts the order into the database through a Rest request. 
 
-### Modules
-
 
 ## Experiences with the project
 
@@ -36,5 +34,10 @@ In summary it went well, but to dig deeper and understand our difficulties we ha
 friends from before so it made things easier to communicate and the barrier from being strangers to friends were already gone which meant we had an easier way of
 communicating our skills and preferences and understanding eachother alongside projects timeline. However, we did run into some problems during the time. Since the
 project was divided into three parts and we all were responsible for one part it made us all have to meet our deadlines in time, for example the backend had to be done
-fairly quick so the frontend can gather data like ingredients etc. This was a good way of doing the project, but 
+fairly quick so the frontend can gather data like ingredients etc. This was a good way of doing the project, but we all had personal problems during the project like
+someone being sick or busy with other things in life which made the rest of the project be up on hold until that person was done. That was the only difficulty we can think of. What we could have done different is maybe have a schedule for everyones part of the project and use the trello that we created in the start abit more.
+
+## Experiences with working with containers
+
+In the start we had alot of problems with docker and we all find it not very beginner friendly. However, when you grasp the concept of dockers you start to realize that it is very useful when you work in a group and everyone has different configurations and add new packages. So when everything was up and running with the dockers, and we had all the containers ready, then we had a great experience with dockers and felt that it saved alot of issues with configurations with libraries etc. We also had problems like the backend trying to connect to the mysql database container before that one was up and running but we solved that by adding a check so we try to reconnect if it fails, so called "health check". What we could have done different is used the dockers more effectively by using mounts and binds so we could have more efficiently developed our project without having to restart the containers and rebuild everytime. 
 

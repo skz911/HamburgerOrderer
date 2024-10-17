@@ -23,3 +23,14 @@ I have watched youtube tutorials to learn how css and html elements work. I will
 Day 4 - 2024-10-17
 
 We noticed that we had gone about our project differently than was described in the instruction, after brainstorming and testing different solutions, we managed to make the project work according to the instruction.
+
+Day 4, part 2 - 2024-10-17
+Debugging session: I chose to test the fucntion displayOrders. Because the fuction I am testing is on line 28, I put my breakpoint on line 29.
+The file I am testing in can be found under Sources in the debug-menu in the developer options. I used continue, step over, step into and step out in different orders to see what difference they make.
+Continue executees the program and breaks on the defined breakpoints. 
+Step over executes the program statement by statement within the current scope. 
+Step into works the same way as step over, unless the statement is a function call, in which case it will execute that. 
+Step out runs until the function returns, but only if it is in a nested loop, otherwise it will execute the program to the end.
+Variables can be monitored by opening the "Omfattning"-menu (my firefox is in swedish). The variable I chose didn't change at all during my testing.
+I am still a beginner at debugging and don't understand all the different menus and buttons yet, but I did learn a lot during my debugging-session.
+I think debugging will be very useful for me if I do end up pursuing a career in software development.

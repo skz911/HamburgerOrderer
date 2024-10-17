@@ -1,4 +1,4 @@
-# Conclusion of the whole project
+# Conclusion of the use of Git
 
 ## Names
 

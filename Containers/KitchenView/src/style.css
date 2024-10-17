@@ -3,3 +3,64 @@ body {
     text-align: center;
     margin-top: 50px;
 }
+/* styles.css */
+
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  #order-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .order {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border: 1px solid #ddd;
+  }
+  
+  .order h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .order h3 {
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .order ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .order li {
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+  }
+  
+  .order p {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  @media (max-width: 768px) {
+    #order-container {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+  

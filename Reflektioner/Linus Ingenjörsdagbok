@@ -160,3 +160,75 @@ Otherwise the day want good, i didnt really have any problems.
 
 I used Git Merge, Git Checkout, Git Add, Git Commit, Git Push
 
+
+day 12 14/10/24
+
+Today i didnt do much coding on my own device, i sat and collaboratively programmed with kevin in discord. We had to fix the server and its endpoints for our client and kitchen views.
+kevin had setup the database wrong from the beginning so we had to look over it so that we can store everything properly and have the relationships of the tables correct.
+
+we also had a problem with docker where the backend was served before the database was done loading so the server couldnt connect, we did this by adding a "health check" to the server where it waited until the database was setup and ready.
+
+
+
+
+day 13 17/10/24
+
+Today we have spent alot of time on fixing the small issues left in the project. we finished our conclusion pages and reflected on how we did on the project.
+
+we fixed so we fetch data from the database to the client frontend to display ingredients instead of having static files with the ingredient and item data.
+I also fixed the kitchen-view so that orders display. We found out that we had done it in a way we shouldnt where we send the post from the client to the server to save it in the database
+Then we use GET-requests to the server to then get the orders sent to the kitchen.
+
+We got told that we couldve used a POST request directly from then client to the kitchen instead of doing it through the server and saving them in the database.
+
+I have also created a test for a function in my client view where i test the reducer functions for the carts functionality ( adding burgers, drinks, extra items, increasing extra items quantity)
+I did this with Jest and it went well, i feel like i should start testing more of my functions on future products. 
+
+--------DEBUG SESSION--------
+
+I chose to debug the function called: calculateTotalOrderCost() inside the cart component in my project.
+I did this with the firefox browsers developer tool "felsökaren" 
+
+i found the file i wanted to debug in the "källor" tab where i navigated through the file system of my project untill i found cart.js
+inside that file i found my function on line 62
+
+i wanted to see what happened inside the function so i put my breakpoint inside of the functions brackets on row 63.
+after that i did something to run the function ( by going to the checkout page )
+
+inside the developer tools i can see 4 buttons, continue, step over, step in, step out. i can use these to move through my code and into different functions etc.
+this was a little bit of a problem since i was using react and it changes alot of stuff. but the code i wanted to debug was mostly pure javascript.
+
+this is how it looked in the debugger:
+
+  var calculateTotalOrderCost = function calculateTotalOrderCost() {
+  --> BREAKPOINT  var burgersCost = cart.burgers.reduce(function (total, burger) {
+      return total + calculateBurgerCost(burger);
+    }, 0);
+    var extrasCost = calculateExtrasCost();
+    var drinksCost = calculateDrinksCost();
+    return burgersCost + extrasCost + drinksCost;
+  };
+
+i wanted to follow the variable burgersCost through the function. i could find ut under the "omfattning" tab under the 4 debugger buttons "continue, step over, step in, step out."
+in that tab i could also find the other variables extrasCost and drinkCost. and before they got assigned their value it said unidentified.
+i wanted to see what would change when i came to their part in the code so i pressed the "step over" button untill i came to extrasCost and i could see that its variable got updated with its price.
+
+To see different results i did different orders like adding another burger, adding other extra items, another drink etc... I could see how the variables changed each time.
+
+CONCLUSION
+
+i found the firefox developer tools hard to navigate and it took a little while before i figured it out. I have found that i work better using console.logs.
+But i will try using the developer tools more since it has a lot more to offer than console.log().
+
+I also know that there is a better way to debug react projects so it might also be something to look into in the future.
+
+conclusion: debugging is very important and there are many ways to do it. a lot of frameworks have their own way of debugging and there are many options to try. I have yet tired many
+but i feel like it will help a lot once i get into it more.
+
+
+
+
+
+
+
+

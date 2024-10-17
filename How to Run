@@ -1,9 +1,0 @@
-How to run
-
-måste ha Node och NPM nedladdat, även Docker
-
-Gå in i container filen "cd Containers"
-
-kör commandot "Docker compose up"
-
-Containrarna borde startas av sig själv i docker och du kan go till localhost/3000 eller localhost/3001

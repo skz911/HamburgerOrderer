@@ -56,6 +56,11 @@ git push origin main
 
 # Experience of using Git and Github
 
+## how we used it
+
+We had a great time using github and git. we started of with kevin creating the remote repository then we all cloned it. it took a while for us to start using branching etc since we were new to git. We eventually got it down and started using branches and it made work easier. We also didnt have many merge errors since we each had our own part in the project to be done. This was extremely helpful since we had almost no merge errors at all.
+
+
 ## what went well?
 
 almost everything went well. we didnt have a lot of times where we had problems. It was good to use and pretty easy to learn the basics of.

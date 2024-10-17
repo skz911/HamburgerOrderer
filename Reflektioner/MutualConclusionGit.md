@@ -65,8 +65,14 @@ almost everything went well. we didnt have a lot of times where we had problems.
 we had a couple of merge errors here and there when we tried to work on the same files.
 It was a learning experience though since we had to solve the conflicts of the merge error togehter
 
+we also didnt use enough branching which would help with some other problems we had.
+
 ### how we solved and what we didnt solve.
 
 most of the problems we had was just a quick google search away from solving and we didnt find anything that we couldnt solve.
+
+### for the future projects
+
+branch more often. Better commit messages and more regular commits after implementations.
 
 

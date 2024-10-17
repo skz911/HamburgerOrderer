@@ -27,6 +27,9 @@ with the mysql container, so both have to be running for this container to be wo
 #### client contianer
 This container is responible for hosting the client frontend where they can order burgers. It fetches data from the server which gets the ingredients and other items from the database and displays it on the pages. It also has the functionality for the users to create their own burger from scratch and also order extra items and drinks. It then sends a post request with this data to the server which then inserts the order into the database through a Rest request. 
 
+#### kitchen container
+The kithen container regularly checks the server for new orders. When a new order is received via the REST-API, it will be displayed on the screen in the kitchen. It is displayed in such a way that makes it easy and efficient for the staff to prepare the order.
+
 
 ## Experiences with the project
 

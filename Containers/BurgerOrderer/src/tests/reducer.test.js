@@ -1,6 +1,6 @@
-import { reducer } from '../pages/OrderPage'; // Ensure correct path to your reducer file
+import { reducer } from '../pages/OrderPage';
 
-describe('Order reducer', () => {
+describe('Order reducer (test the functionality of the reducer in the orderpage so that i can add and modify items in the users cart', () => {
 
   it('should add a burger to the cart', () => {
     const initialState = {

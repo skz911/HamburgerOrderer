@@ -1,11 +1,35 @@
 const express = require('express');
 const mysql = require('mysql2');
-const app = express();
 const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsDoc = require('swagger-jsdoc');
+
+const app = express();
 const port = 8000;
 
-app.use(cors()); 
-app.use(express.json()); 
+app.use(cors());
+app.use(express.json());
+
+const swaggerOptions = {
+  swaggerDefinition: {
+      openapi: "3.0.0",
+      info: {
+          title: "Backend documentation",
+          version: "1.0.0",
+          description: "Documentation for backend endpoints",
+        },
+        servers: [
+            {
+                url: `http://localhost:${port}`,
+                description: "Development server"
+            }
+        ]
+    },
+    apis: ["./app/*.js"],
+  };
+
+const swaggerDocs = swaggerJsDoc(swaggerOptions);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 const connection = mysql.createConnection({
     host: 'mysql',
@@ -23,7 +47,60 @@ connection.connect((err) => {
     console.log('Successfully connected to BTHDonkens database!');
 });
 
-
+/**
+ * @swagger
+ * /api/order:
+ *   post:
+ *     summary: Creates a new order sent from the frontend with the client, stores the order in database.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               burgers:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                     quantity:
+ *                       type: integer
+ *               extras:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *                     quantity:
+ *                       type: integer
+ *               drinks:
+ *                 type: array
+ *                 items:
+ *                   type: object
+ *                   properties:
+ *                     id:
+ *                       type: integer
+ *               totalCost:
+ *                 type: number
+ *     responses:
+ *       201:
+ *         description: Order created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                 orderId:
+ *                   type: integer
+ *       500:
+ *         description: An error occurred while creating the order
+ */
 app.post('/api/order', (req, res) => {
     const { burgers, extras, drinks, totalCost } = req.body;
   
@@ -87,10 +164,43 @@ app.post('/api/order', (req, res) => {
   
       res.status(201).json({ message: 'Order created successfully', orderId: orderId });
     });
-  });
+});
 
-  
-  app.get('/api/orders', (req, res) => {
+/**
+ * @swagger
+ * /api/orders:
+ *   get:
+ *     summary: Retrieve all orders
+ *     responses:
+ *       200:
+ *         description: A list of orders - used in the frontend of kitchenview to see all the orders
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 orders:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       orderId:
+ *                         type: integer
+ *                       totalCost:
+ *                         type: number
+ *                       burgers:
+ *                         type: array
+ *                         items: {}
+ *                       extraItems:
+ *                         type: array
+ *                         items: {}
+ *                       drinks:
+ *                         type: array
+ *                         items: {}
+ *       500:
+ *         description: An error occurred while fetching the orders
+ */
+app.get('/api/orders', (req, res) => {
     const ordersQuery = `
       SELECT 
         order_id AS orderId,
@@ -201,23 +311,17 @@ app.post('/api/order', (req, res) => {
                         return;
                     }
 
-                    burgersResults.forEach(row => {
-                        const order = orders.find(o => o.orderId === row.orderId);
+                    burgersResults.forEach(burger => {
+                        const order = orders.find(o => o.orderId === burger.orderId);
                         if (order) {
-                            let burger = order.burgers.find(b => b.burgerId === row.burgerId);
-                            if (!burger) {
-                                burger = { burgerId: row.burgerId, ingredients: [] };
-                                order.burgers.push(burger);
-                            }
-                            if (row.ingredientId) {
-                                if (!burger.ingredients.find(i => i.ingredientId === row.ingredientId)) {
-                                    burger.ingredients.push({
-                                        ingredientId: row.ingredientId,
-                                        ingredientName: row.ingredientName,
-                                        quantity: row.ingredientQuantity
-                                    });
-                                }
-                            }
+                            order.burgers.push({
+                                burgerId: burger.burgerId,
+                                ingredients: [{
+                                    ingredientId: burger.ingredientId,
+                                    ingredientName: burger.ingredientName,
+                                    quantity: burger.ingredientQuantity
+                                }]
+                            });
                         }
                     });
 
@@ -228,35 +332,46 @@ app.post('/api/order', (req, res) => {
     });
 });
 
-app.get('/api/getItems', (req, res) => {
-  connection.query('SELECT * FROM Ingredients', (error, ingredients) => {
-      if (error) {
-          console.error('Error fetching Ingredients:', error);
-          return res.status(500).json({ error: 'Error fetching Ingredients' });
-      }
-
-      connection.query('SELECT * FROM ExtraItems', (error, extraItems) => {
-          if (error) {
-              console.error('Error fetching ExtraItems:', error);
-              return res.status(500).json({ error: 'Error fetching ExtraItems' });
-          }
-
-          connection.query('SELECT * FROM DrinkItems', (error, drinkItems) => {
-              if (error) {
-                  console.error('Error fetching DrinkItems:', error);
-                  return res.status(500).json({ error: 'Error fetching DrinkItems' });
-              }
-
-              res.status(200).json({
-                  ingredients,
-                  extraItems,
-                  drinkItems
-              });
-          });
-      });
-  });
+/**
+ * @swagger
+ * /api/items:
+ *   get:
+ *     summary: Retrieve all items
+ *     responses:
+ *       200:
+ *         description: A list of items taken from the database - used in the frontend to display correct names -> prices etc.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 items:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       id:
+ *                         type: integer
+ *                       name:
+ *                         type: string
+ *                       type:
+ *                         type: string
+ *                       quantity:
+ *                         type: integer
+ *       500:
+ *         description: An error occurred while fetching the items
+ */
+app.get('/api/items', (req, res) => {
+    connection.query('SELECT * FROM Items', (err, results) => {
+        if (err) {
+            console.error('Error fetching items:', err);
+            res.status(500).json({ message: 'An error occurred while fetching the items' });
+            return;
+        }
+        res.status(200).json({ items: results });
+    });
 });
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`Server is running on http://localhost:${port}`);
 });

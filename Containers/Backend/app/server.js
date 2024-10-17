@@ -7,7 +7,6 @@ const port = 8000;
 app.use(cors()); 
 app.use(express.json()); 
 
-//Create connection to the database
 const connection = mysql.createConnection({
     host: 'mysql',
     user: 'user',
@@ -16,7 +15,6 @@ const connection = mysql.createConnection({
     port: 3306
 });
 
-//Connect to the database
 connection.connect((err) => {
     if (err) {
         console.error('Failed to connect to the database, error:', err.stack);
@@ -230,8 +228,35 @@ app.post('/api/order', (req, res) => {
     });
 });
 
+app.get('/api/getItems', (req, res) => {
+  connection.query('SELECT * FROM Ingredients', (error, ingredients) => {
+      if (error) {
+          console.error('Error fetching Ingredients:', error);
+          return res.status(500).json({ error: 'Error fetching Ingredients' });
+      }
 
-//Start the backend server
+      connection.query('SELECT * FROM ExtraItems', (error, extraItems) => {
+          if (error) {
+              console.error('Error fetching ExtraItems:', error);
+              return res.status(500).json({ error: 'Error fetching ExtraItems' });
+          }
+
+          connection.query('SELECT * FROM DrinkItems', (error, drinkItems) => {
+              if (error) {
+                  console.error('Error fetching DrinkItems:', error);
+                  return res.status(500).json({ error: 'Error fetching DrinkItems' });
+              }
+
+              res.status(200).json({
+                  ingredients,
+                  extraItems,
+                  drinkItems
+              });
+          });
+      });
+  });
+});
+
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });

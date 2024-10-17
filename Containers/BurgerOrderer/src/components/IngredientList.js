@@ -28,7 +28,6 @@ const IngredientList = ({ ingredients, addIngredient, removeIngredient, cart }) 
             key={ingredient.id}
             name={ingredient.name}
             price={ingredient.price}
-            image={ingredient.image}
             addIngredient={() => addIngredient(ingredient)} 
             removeIngredient={() => removeIngredient(ingredient)} 
             cart={cart}  

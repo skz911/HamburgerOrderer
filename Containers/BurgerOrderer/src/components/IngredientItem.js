@@ -26,7 +26,7 @@ const IngredientItem = ({ name, price, image, addIngredient, removeIngredient, c
   return (
     <div className="flex items-center justify-between py-2">
       <div className="flex items-center">
-        <img src={image} alt={name} className="w-10 text-xs h-10 bg-yellow-400" />
+        <img src={image} className="w-10 text-xs h-10 bg-yellow-400" />
         <div className="ml-4">
           <p className="text-gray-800 text-xl">{name}</p>
           <p className="text-gray-600 text-sm">{price}kr</p>

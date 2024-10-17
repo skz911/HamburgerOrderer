@@ -30,5 +30,11 @@ This container is responible for hosting the client frontend where they can orde
 ### Modules
 
 
+## Experiences with the project
 
+In summary it went well, but to dig deeper and understand our difficulties we have to tackle them one by one. What we all thought was good is that we were already 
+friends from before so it made things easier to communicate and the barrier from being strangers to friends were already gone which meant we had an easier way of
+communicating our skills and preferences and understanding eachother alongside projects timeline. However, we did run into some problems during the time. Since the
+project was divided into three parts and we all were responsible for one part it made us all have to meet our deadlines in time, for example the backend had to be done
+fairly quick so the frontend can gather data like ingredients etc. This was a good way of doing the project, but 
 

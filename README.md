@@ -18,9 +18,9 @@ the project should now be able to be viewn from localhost:3000 and localhost:300
 
 ## generate jsdocs for client-view
 
-cd .\Containers\BurgerOrderer\
-npm install
-npm run doc
+cd .\Containers\BurgerOrderer\  
+npm install  
+npm run doc  
 
 ### finding the docs
 
@@ -30,14 +30,15 @@ a directory will be generated in the directory called /docs. you can then open d
 
 ### move to the right directory, install npm and run the script called test
 
-cd .\Containers\BurgerOrderer\
-npm install
-npm test
+cd .\Containers\BurgerOrderer\  
+npm install  
+npm test  
 
 In the console you will now see the tests run, it will test the reducer function handling the cart functions for the orderpage on the client-view.
 
- npm test
-`
+it will look something like this:  
+
+npm test  
 
 > burgerorderer@1.0.0 test
 > jest
@@ -54,6 +55,5 @@ Tests:       4 passed, 4 total
 Snapshots:   0 total
 Time:        1.905 s, estima
 
-`
 
 

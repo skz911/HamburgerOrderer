@@ -1,6 +1,16 @@
 // src/components/ExtraList.js
 import React from 'react';
 
+/**
+ * IngredientList component renders a list of ingredients, each with the ability to be added to or removed from the cart.
+ * 
+ * @component
+ * @memberof module:OrderComponents
+ * @param {Object[]} extras - Array of extra item objects, each containing `id`, `name`, `price`.
+ * @param {Function} addExtra - Function to add a specific extra item to the cart.
+ * @returns {JSX.Element} The rendered list of extra items.
+ */
+
 const ExtraList = ({ extras, addExtra }) => {
     return (
     <div className="p-10 h-full w-full bg-white rounded-lg shadow-md transition-transform">

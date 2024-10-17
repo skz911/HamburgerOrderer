@@ -267,11 +267,11 @@ const OrderPage = () => {
 
 
   if (loading) {
-    return <div>Loading...</div>; // Show loading state while fetching
+    return <div>Loading...</div>; 
   }
 
   if (error) {
-    return <div>Error: {error}</div>; // Show error message if there's an issue
+    return <div>Error: {error}</div>; 
   }
 
   return (

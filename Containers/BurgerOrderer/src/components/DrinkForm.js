@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
 
+/**
+ * IngredientList component renders a list of ingredients, each with the ability to be added to or removed from the cart.
+ * 
+ * @component
+ * @memberof module:OrderComponents
+ * @param {Object[]} drinks - Array of drink objects, each containing `id`, `name`, `price`.
+ * @param {Function} addDrink - Function to add a specific drink to the cart.
+ * @returns {JSX.Element} The rendered form for adding drinkItems.
+ */
+
+
 const DrinkForm = ({ drinks, addDrink }) => {
   const [selectedDrink, setSelectedDrink] = useState(null);
   const handleDrinkChange = (e) => {
